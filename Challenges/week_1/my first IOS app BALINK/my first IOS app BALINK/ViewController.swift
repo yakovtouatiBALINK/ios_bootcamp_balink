@@ -70,7 +70,7 @@ class ViewController: UIViewController{
         //    }
     }
 }
-//extension String {
+//extension ViewController {
 //
 //    // MARK: - RegexType
 //    enum RegexType {
