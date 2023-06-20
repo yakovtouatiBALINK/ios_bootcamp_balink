@@ -17,6 +17,10 @@
 		019FB8182A3F25EF00643D1D /* to_du_listUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019FB8172A3F25EF00643D1D /* to_du_listUITests.swift */; };
 		019FB81A2A3F25EF00643D1D /* to_du_listUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019FB8192A3F25EF00643D1D /* to_du_listUITestsLaunchTests.swift */; };
 		019FB8292A3F49B600643D1D /* DataCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019FB8282A3F49B600643D1D /* DataCollectionViewCell.swift */; };
+		01B2BEF62A419F780015E519 /* ModelTodoApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 01B2BEF42A419F780015E519 /* ModelTodoApp.xcdatamodeld */; };
+		01B2BF012A41E5570015E519 /* ModelTodoApp+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2BEFF2A41E5570015E519 /* ModelTodoApp+CoreDataClass.swift */; };
+		01B2BF022A41E5570015E519 /* ModelTodoApp+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2BF002A41E5570015E519 /* ModelTodoApp+CoreDataProperties.swift */; };
+		01B2BF042A41E72E0015E519 /* Todu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2BF032A41E72E0015E519 /* Todu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,10 @@
 		019FB8172A3F25EF00643D1D /* to_du_listUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = to_du_listUITests.swift; sourceTree = "<group>"; };
 		019FB8192A3F25EF00643D1D /* to_du_listUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = to_du_listUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		019FB8282A3F49B600643D1D /* DataCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCollectionViewCell.swift; sourceTree = "<group>"; };
+		01B2BEF52A419F780015E519 /* ModelTodoApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ModelTodoApp.xcdatamodel; sourceTree = "<group>"; };
+		01B2BEFF2A41E5570015E519 /* ModelTodoApp+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModelTodoApp+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		01B2BF002A41E5570015E519 /* ModelTodoApp+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModelTodoApp+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		01B2BF032A41E72E0015E519 /* Todu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +89,7 @@
 		019FB7EA2A3F25ED00643D1D = {
 			isa = PBXGroup;
 			children = (
+				01B2BEF32A419E840015E519 /* Model */,
 				019FB8282A3F49B600643D1D /* DataCollectionViewCell.swift */,
 				019FB7F52A3F25ED00643D1D /* to du list */,
 				019FB80C2A3F25EE00643D1D /* to du listTests */,
@@ -102,6 +111,7 @@
 		019FB7F52A3F25ED00643D1D /* to du list */ = {
 			isa = PBXGroup;
 			children = (
+				01B2BEF42A419F780015E519 /* ModelTodoApp.xcdatamodeld */,
 				019FB7F62A3F25ED00643D1D /* AppDelegate.swift */,
 				019FB7F82A3F25ED00643D1D /* SceneDelegate.swift */,
 				019FB7FA2A3F25ED00643D1D /* ViewController.swift */,
@@ -128,6 +138,16 @@
 				019FB8192A3F25EF00643D1D /* to_du_listUITestsLaunchTests.swift */,
 			);
 			path = "to du listUITests";
+			sourceTree = "<group>";
+		};
+		01B2BEF32A419E840015E519 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				01B2BEFF2A41E5570015E519 /* ModelTodoApp+CoreDataClass.swift */,
+				01B2BF002A41E5570015E519 /* ModelTodoApp+CoreDataProperties.swift */,
+				01B2BF032A41E72E0015E519 /* Todu.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,7 +284,11 @@
 				019FB7FB2A3F25ED00643D1D /* ViewController.swift in Sources */,
 				019FB7F72A3F25ED00643D1D /* AppDelegate.swift in Sources */,
 				019FB8292A3F49B600643D1D /* DataCollectionViewCell.swift in Sources */,
+				01B2BF022A41E5570015E519 /* ModelTodoApp+CoreDataProperties.swift in Sources */,
+				01B2BF042A41E72E0015E519 /* Todu.swift in Sources */,
+				01B2BEF62A419F780015E519 /* ModelTodoApp.xcdatamodeld in Sources */,
 				019FB7F92A3F25ED00643D1D /* SceneDelegate.swift in Sources */,
+				01B2BF012A41E5570015E519 /* ModelTodoApp+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -600,6 +624,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		01B2BEF42A419F780015E519 /* ModelTodoApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				01B2BEF52A419F780015E519 /* ModelTodoApp.xcdatamodel */,
+			);
+			currentVersion = 01B2BEF52A419F780015E519 /* ModelTodoApp.xcdatamodel */;
+			path = ModelTodoApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 019FB7EB2A3F25ED00643D1D /* Project object */;
 }
