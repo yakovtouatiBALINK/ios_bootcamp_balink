@@ -71,8 +71,6 @@ class ViewController: UIViewController {
         //        UserDefaults.standard.set(taskData, forKey: "taskData")
         //        UserDefaults.standard.removeObject(forKey: "taskData")
     }
-    
-    
 }
 
 extension ViewController: UICollectionViewDataSource {
@@ -114,6 +112,7 @@ extension ViewController: UICollectionViewDelegate {
     func showAlert(todo: NSManagedObject){
         let alertView = Bundle.main.loadNibNamed("CustemView", owner: self)?.first as? CustemView
         alertView?.titleData.text = todo.value(forKey: "task") as? String
+        alertView?.frame = CGRect(x: 20, y: 320, width: 350, height: 180)
         if let alertView = alertView {
             self.view.addSubview(alertView)
         }
