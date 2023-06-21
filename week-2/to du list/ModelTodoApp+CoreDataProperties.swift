@@ -4,11 +4,9 @@
 //
 //  Created by yacov touati on 20/06/2023.
 //
-//
 
 import Foundation
 import CoreData
-
 
 extension ModelTodoApp {
 
@@ -17,9 +15,5 @@ extension ModelTodoApp {
     }
 
     @NSManaged public var task: String?
-
 }
 
-extension ModelTodoApp : Identifiable {
-
-}

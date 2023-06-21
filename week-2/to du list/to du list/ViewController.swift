@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     //var coreDataStack: CoreDataStack = CoreDataStack()  // יצירת מופע של הקלאס
     var managedObjectContext: NSManagedObjectContext!   //
     var entity: NSEntityDescription!
+    //MARK this is for costom view
+    var inputTitle: FieldType!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,16 +77,6 @@ class ViewController: UIViewController {
         //        UserDefaults.standard.set(taskData, forKey: "taskData")
         //        UserDefaults.standard.removeObject(forKey: "taskData")
     }
-    
-    // function that get the data from the coreData
-    private func getSavedData() {
-        let request = NSFetchRequest<NSManagedObject>(entityName: "Todu")
-        do {
-            taskData = try managedObjectContext.fetch(request)
-        } catch {
-            print("Failed")
-        }
-    }
 }
 
 extension ViewController: UICollectionViewDataSource {
@@ -115,6 +107,16 @@ extension ViewController: UICollectionViewDataSource {
     func randomIndexFromArray(array: [NSManagedObject]) -> Int {
         let randomIndex = Int.random(in: 0..<array.count)
         return randomIndex
+    }
+    
+    // function that get the data from the coreData
+    func getSavedData() {
+        let request = NSFetchRequest<NSManagedObject>(entityName: "Todu")
+        do {
+            taskData = try managedObjectContext.fetch(request)
+        } catch {
+            print("Failed")
+        }
     }
 }
 

@@ -12,6 +12,6 @@ class DataCollectionViewCell: UICollectionViewCell {
     
     func setup(backgroundColor: UIColor, cellData: NSManagedObject){
         self.backgroundColor = backgroundColor
-        dataLaebl.text = cellData.value(forKey: "task") as! String
+        dataLaebl.text = cellData.value(forKey: "task") as? String
     }
 }
