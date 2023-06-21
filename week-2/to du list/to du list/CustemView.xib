@@ -42,6 +42,10 @@
                 <constraint firstItem="qgu-rt-MSg" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="gDx-62-RZY"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="switchpressed" destination="Dv9-1X-UDY" id="Ib5-o2-sE4"/>
+                <outlet property="titleData" destination="IDT-Cs-j8K" id="N5p-Nt-zK3"/>
+            </connections>
             <point key="canvasLocation" x="136.64122137404578" y="20.422535211267608"/>
         </view>
     </objects>
