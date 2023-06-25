@@ -13,11 +13,11 @@ enum FieldType {
 }
 
 class CustemView: UIView {
-    var type: FieldType = .Title
-//    var type: FieldType = .OnSwitch
     
     @IBOutlet weak var titleData: UILabel!
     @IBOutlet weak var switchpressed: UISwitch!
     
-    private let titleTask: UILabel = UILabel()
+    @IBAction func pressSwtich(_ sender: UISwitch) {
+        
+    }
 }

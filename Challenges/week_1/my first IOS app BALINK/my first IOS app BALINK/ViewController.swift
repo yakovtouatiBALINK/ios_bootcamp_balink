@@ -9,8 +9,11 @@ import UIKit
 
 class ViewController: UIViewController{
     
-    var getName: String = ""
-    var getPassword: String = ""
+    var firstName: String?
+    var lastName: String?
+    var userName: String?
+    var pasword: String?
+    var token: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,24 +25,41 @@ class ViewController: UIViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "towelcome" {
             let destinationVC = segue.destination as? WellcomeScreenViewController
-            destinationVC?.namePassed = getName
+            destinationVC?.namePassed = firstName ?? ""
+        }
+    }
+    
+    
+    @IBAction func pressedFirstName(_ sender: UITextField) {
+        if let FirstNameValue = sender.text {
+            firstName = FirstNameValue
+        } else {
+            firstName = ""
+        }
+    }
+    
+    @IBAction func pressLastName(_ sender: UITextField) {
+        if let lastNameValue = sender.text {
+            lastName = lastNameValue
+        } else {
+            firstName = ""
         }
     }
     
     //chek the data that enter in the field
     @IBAction func pressedName(_ sender: UITextField) {
         if let nameValue = sender.text {
-            getName = nameValue
+            firstName = nameValue
         } else {
-            getName = ""
+            firstName = ""
         }
     }
     
     @IBAction func pressedPassword(_ sender: UITextField) {
         if let passwordValue = sender.text {
-            getPassword = passwordValue
+            pasword = passwordValue
         } else {
-            getPassword = ""
+            pasword = ""
         }
     }
     
@@ -54,41 +74,56 @@ class ViewController: UIViewController{
     
     //check if tow field is not empty
     @IBAction func pressedLogin(_ sender: UIButton) {
-        let valid = isValid(testStr: getName)
-        
+        let valid = isValid(testStr: firstName ?? "")
         if valid {
             performSegue(withIdentifier: "towelcome", sender: self)
         } else {
             return
         }
-        
-        //        guard !getName.isEmpty, !getPassword.isEmpty else {
-        //            return
-        //        }
-        //        //it's do the segue manuelye
-        //        performSegue(withIdentifier: "towelcome", sender: self)
-        //    }
     }
+    
+    func sendData(firstname: String, lastname: String, username: String, password: String) {
+        let url = URL(string: "https://balink.onlink.dev/register")!
+        
+        let user = ["firstname":"fhfdfdj", "lastname":"fhfdfdfj", "username":"fhdffj@ffg.ttg", "password":"fdhfj"]
+        let jsonData = try? JSONSerialization.data(withJSONObject: user)
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        request.httpBody = jsonData
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let data = data {
+                self.token = String(data: data, encoding: .utf8)  ?? ""
+            }
+            else {
+                print("error")
+            }
+        }.resume()
+        
+    }
+
 }
+
+
 //extension ViewController {
 //
 //    // MARK: - RegexType
 //    enum RegexType {
 //        case none
-//        case mobileNumberWithItalianCode    // Example: "+39 3401234567"
 //        case email                          // Example: "foo@example.com"
 //        case minLetters(_ letters: Int)     // Example: "Al"
 //        case minDigit(_ digits: Int)        // Example: "0612345"
 //        case onlyLetters                    // Example: "ABDEFGHILM"
 //        case onlyNumbers                    // Example: "132543136"
-//        case noSpecialChars                 // Example: "Malago'": OK - "Malagò": KO
 //
 //        fileprivate var pattern: String {
 //            switch self {
 //            case .none:
 //                return ""
-//            case .mobileNumberWithItalianCode:
-//                return #"^(\+39 )\d{9,}$"#
 //            case .email:
 //                return #"^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"#
 //            case .minLetters(let letters):
@@ -99,8 +134,6 @@ class ViewController: UIViewController{
 //                return #"^[A-Za-z]+$"#
 //            case .onlyNumbers:
 //                return #"^[0-9]"#
-//            case .noSpecialChars:
-//                return #"^[A-Za-z0-9\s+\\\-\/?:().,']+$"#
 //            }
 //        }
 //    }
@@ -131,3 +164,23 @@ class ViewController: UIViewController{
 //    }
 //
 //}
+
+
+
+
+
+//if let pressedValue = sender.tag {
+//    switch pressedValue {
+//    case 1:
+//        saveFirstName = sender.text!
+//    case 2:
+//        savelastName = sender.text!
+//    case 3:
+//        saveUserName = sender.text!
+//    case 4:
+//        savePassword = sender.text!
+//    default:
+//        print("not value")
+//    }
+//}
+

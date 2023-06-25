@@ -23,6 +23,7 @@
 		01DEFD1C2A42E4620025A28D /* DataCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DEFD1B2A42E4620025A28D /* DataCollectionViewCell.swift */; };
 		01DEFD1E2A42F8430025A28D /* CustemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DEFD1D2A42F8430025A28D /* CustemView.swift */; };
 		01DEFD202A42F85D0025A28D /* CustemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01DEFD1F2A42F85D0025A28D /* CustemView.xib */; };
+		01DEFD222A4348F40025A28D /* ManageCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DEFD212A4348F40025A28D /* ManageCoreData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		01DEFD1B2A42E4620025A28D /* DataCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataCollectionViewCell.swift; sourceTree = "<group>"; };
 		01DEFD1D2A42F8430025A28D /* CustemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustemView.swift; sourceTree = "<group>"; };
 		01DEFD1F2A42F85D0025A28D /* CustemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustemView.xib; sourceTree = "<group>"; };
+		01DEFD212A4348F40025A28D /* ManageCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageCoreData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 				019FB8042A3F25EE00643D1D /* Info.plist */,
 				01DEFD1D2A42F8430025A28D /* CustemView.swift */,
 				01DEFD1F2A42F85D0025A28D /* CustemView.xib */,
+				01DEFD212A4348F40025A28D /* ManageCoreData.swift */,
 			);
 			path = "to du list";
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				01DEFD1C2A42E4620025A28D /* DataCollectionViewCell.swift in Sources */,
 				019FB7FB2A3F25ED00643D1D /* ViewController.swift in Sources */,
 				01DEFD1E2A42F8430025A28D /* CustemView.swift in Sources */,
+				01DEFD222A4348F40025A28D /* ManageCoreData.swift in Sources */,
 				019FB7F72A3F25ED00643D1D /* AppDelegate.swift in Sources */,
 				01B2BF022A41E5570015E519 /* ModelTodoApp+CoreDataProperties.swift in Sources */,
 				01B2BF042A41E72E0015E519 /* Todu.swift in Sources */,

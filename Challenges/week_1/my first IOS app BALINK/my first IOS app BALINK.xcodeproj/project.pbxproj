@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01B00B0B2A44A3E600AAC674 /* ProductTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B00B0A2A44A3E600AAC674 /* ProductTableViewController.swift */; };
 		01B22E712A39D9AB0071AB9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B22E702A39D9AB0071AB9B /* AppDelegate.swift */; };
 		01B22E732A39D9AB0071AB9B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B22E722A39D9AB0071AB9B /* SceneDelegate.swift */; };
 		01B22E752A39D9AB0071AB9B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B22E742A39D9AB0071AB9B /* ViewController.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01B00B0A2A44A3E600AAC674 /* ProductTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewController.swift; sourceTree = "<group>"; };
 		01B22E6D2A39D9AB0071AB9B /* my first IOS app BALINK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "my first IOS app BALINK.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		01B22E702A39D9AB0071AB9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01B22E722A39D9AB0071AB9B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				01B22E722A39D9AB0071AB9B /* SceneDelegate.swift */,
 				01B22E742A39D9AB0071AB9B /* ViewController.swift */,
 				01B22E762A39D9AB0071AB9B /* Main.storyboard */,
+				01B00B0A2A44A3E600AAC674 /* ProductTableViewController.swift */,
 				01BED3A52A3AFAD400E0AF88 /* ProductsViewController.swift */,
 				01BED3A32A3AFA4200E0AF88 /* WellcomeScreenViewController.swift */,
 				01B22E792A39D9AD0071AB9B /* Assets.xcassets */,
@@ -268,6 +271,7 @@
 				01B22E752A39D9AB0071AB9B /* ViewController.swift in Sources */,
 				01B22E712A39D9AB0071AB9B /* AppDelegate.swift in Sources */,
 				01B22E732A39D9AB0071AB9B /* SceneDelegate.swift in Sources */,
+				01B00B0B2A44A3E600AAC674 /* ProductTableViewController.swift in Sources */,
 				01BED3A62A3AFAD400E0AF88 /* ProductsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

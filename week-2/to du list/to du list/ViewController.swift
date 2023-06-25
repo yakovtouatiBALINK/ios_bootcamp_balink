@@ -20,9 +20,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        managedObjectContext = appDelegate.persistentContainer.viewContext
-        entity = NSEntityDescription.entity(forEntityName: "Todu", in: managedObjectContext)
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        managedObjectContext = appDelegate.persistentContainer.viewContext
+//        entity = NSEntityDescription.entity(forEntityName: "Todu", in: managedObjectContext)
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         getSavedData()
@@ -55,22 +55,19 @@ class ViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
-    // function that get the task and keef this in the memory of aply
-    private func saveTask(text: String) {
-        let newTask = NSManagedObject(entity: entity! , insertInto: managedObjectContext)
-        newTask.setValue(text, forKey: "task")
-        do {
-            try managedObjectContext.save()
-            self.taskData.append(newTask)
-            self.collectionView.reloadData()
-        }
-        catch {
-            print("error")
-        }
-        //      userDefaults metod
-        //        UserDefaults.standard.set(taskData, forKey: "taskData")
-        //        UserDefaults.standard.removeObject(forKey: "taskData")
-    }
+//    // function that get the task and keef this in the memory of aply
+//    private func saveTask(text: String) {
+//        let newTask = NSManagedObject(entity: entity! , insertInto: managedObjectContext)
+//        newTask.setValue(text, forKey: "task")
+//        do {
+//            try managedObjectContext.save()
+//            self.taskData.append(newTask)
+//            self.collectionView.reloadData()
+//        }
+//        catch {
+//            print("error")
+//        }
+//    }
 }
 
 extension ViewController: UICollectionViewDataSource {
@@ -130,5 +127,4 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
         let height: CGFloat = 100
         return CGSize(width: width, height: height)
     }
-    
 }
