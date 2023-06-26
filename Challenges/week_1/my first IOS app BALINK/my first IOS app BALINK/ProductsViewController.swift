@@ -7,9 +7,10 @@
 
 import UIKit
 
+// this is the last page
 class ProductsViewController: UIViewController, UITableViewDataSource {
     
-    let products = ["Apple Watch", "MacBook Pro", "IPhone 14 pro", "Airpods Pro", "Apple Keyboard",]
+    let products = ["Apple Watch", "MacBook Pro", "IPhone 14 pro", "Airpods Pro", "Apple Keyboard"]
     
     @IBOutlet weak var tableView: UITableView!
     

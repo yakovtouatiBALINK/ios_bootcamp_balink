@@ -7,6 +7,7 @@
 
 import UIKit
 
+//page welcome
 class WellcomeScreenViewController: UIViewController {
 
     var namePassed: String = ""

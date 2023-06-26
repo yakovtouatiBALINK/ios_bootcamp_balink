@@ -143,6 +143,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="Z7n-BO-QvK"/>
                     <connections>
+                        <outlet property="firstName" destination="ssW-z1-oDs" id="ze1-1m-kSx"/>
+                        <outlet property="lastName" destination="jPQ-UG-bDG" id="I1G-Gz-Y8X"/>
+                        <outlet property="login" destination="sor-lM-4gC" id="Lgg-e7-wdi"/>
+                        <outlet property="password" destination="eR4-6C-6uR" id="ekv-7s-kT1"/>
+                        <outlet property="userName" destination="ggn-OB-FD6" id="62R-4G-yyL"/>
                         <segue destination="uIS-JW-UqZ" kind="show" identifier="towelcome" id="20E-RD-RiO"/>
                     </connections>
                 </viewController>

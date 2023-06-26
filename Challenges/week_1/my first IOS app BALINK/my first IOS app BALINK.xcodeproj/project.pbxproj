@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		019BF0C42A488EF5009288EC /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019BF0C32A488EF5009288EC /* Model.swift */; };
+		019BF0C82A489EE0009288EC /* RegisterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019BF0C72A489EE0009288EC /* RegisterUser.swift */; };
 		01B00B0B2A44A3E600AAC674 /* ProductTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B00B0A2A44A3E600AAC674 /* ProductTableViewController.swift */; };
 		01B22E712A39D9AB0071AB9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B22E702A39D9AB0071AB9B /* AppDelegate.swift */; };
 		01B22E732A39D9AB0071AB9B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B22E722A39D9AB0071AB9B /* SceneDelegate.swift */; };
@@ -39,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		019BF0C32A488EF5009288EC /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		019BF0C72A489EE0009288EC /* RegisterUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUser.swift; sourceTree = "<group>"; };
 		01B00B0A2A44A3E600AAC674 /* ProductTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewController.swift; sourceTree = "<group>"; };
 		01B22E6D2A39D9AB0071AB9B /* my first IOS app BALINK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "my first IOS app BALINK.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		01B22E702A39D9AB0071AB9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +119,8 @@
 				01B22E792A39D9AD0071AB9B /* Assets.xcassets */,
 				01B22E7B2A39D9AD0071AB9B /* LaunchScreen.storyboard */,
 				01B22E7E2A39D9AD0071AB9B /* Info.plist */,
+				019BF0C32A488EF5009288EC /* Model.swift */,
+				019BF0C72A489EE0009288EC /* RegisterUser.swift */,
 			);
 			path = "my first IOS app BALINK";
 			sourceTree = "<group>";
@@ -267,6 +273,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				019BF0C42A488EF5009288EC /* Model.swift in Sources */,
+				019BF0C82A489EE0009288EC /* RegisterUser.swift in Sources */,
 				01BED3A42A3AFA4200E0AF88 /* WellcomeScreenViewController.swift in Sources */,
 				01B22E752A39D9AB0071AB9B /* ViewController.swift in Sources */,
 				01B22E712A39D9AB0071AB9B /* AppDelegate.swift in Sources */,

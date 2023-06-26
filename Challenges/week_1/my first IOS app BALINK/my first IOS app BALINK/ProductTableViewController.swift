@@ -22,12 +22,12 @@ class ProductTableViewController: UITableViewController {
         let images: [String]?
     }
     
-    override func viewDidLoad() async {
-        super.viewDidLoad()
-        
-        await fetchProductFromAPI()
-        
-    }
+//    override func viewDidLoad() async {
+//        super.viewDidLoad()
+//
+//        await fetchProductFromAPI()
+//
+//    }
     
     func fetchProductFromAPI() async throws  -> [Product]{
         
@@ -48,25 +48,15 @@ class ProductTableViewController: UITableViewController {
         return decoded
     }
     
-    Task {
-        do {
-            let product = try await fetchProductFromAPI()
-            print(product)
-        } catch {
-            print(error)
-        }
-    }
+//    Task {
+//        do {
+//            let product = try await fetchProductFromAPI()
+//            print(product)
+//        } catch {
+//            print(error)
+//        }
+//    }
     
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        
-        return 0
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return 0
-    }
 }
 
 
