@@ -20,7 +20,7 @@ class ViewController: UIViewController{
     }
     
     @IBAction func pressedLogin(_ sender: UIButton) {
-        let valid = isValid(testStr: firstName ?? "")
+        let valid = isValid(testStr: firstName ?? "") 
         if valid {
             performSegue(withIdentifier: "towelcome", sender: self)
         } else {
@@ -38,12 +38,7 @@ class ViewController: UIViewController{
         }
     }
     
-    func isValid(testStr: String) -> Bool {
-        guard testStr.count > 3, testStr.count < 8 else { return false }
-        
-        let predicateTest = NSPredicate(format: "SELF MATCHES %@", "^(([^ ]?)(^[a-zA-Z].*[a-zA-Z]$)([^ ]?))$")
-        return predicateTest.evaluate(with: testStr)
-    }
+      
     
     
    

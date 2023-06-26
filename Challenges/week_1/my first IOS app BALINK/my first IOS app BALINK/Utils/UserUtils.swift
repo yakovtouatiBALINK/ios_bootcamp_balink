@@ -5,19 +5,20 @@
 //  Created by yacov touati on 25/06/2023.
 //
 
-import UIKit
+import Foundation
 
-class RegisterUser: UIViewController {
+struct user {
+    var firstName: String?
+    var lastName: String?
+    var userName: String?
+    var pasword: String?
+}
+
+class UserUtils {
+    
+    static let `default` = UserUtils()
     
     var token: String?
-    
-    struct user {
-        var firstName: String?
-        var lastName: String?
-        var userName: String?
-        var pasword: String?
-//        var token: String?
-    }
     
     func registerUser(firstname: String, lastname: String, username: String, password: String) {
         let url = URL(string: "https://balink.onlink.dev/register")!
@@ -41,4 +42,13 @@ class RegisterUser: UIViewController {
             }
         }.resume()
     }
+    
+//    func getToken() -> String? {
+//
+//    }
+//
+//    func logOut() {
+//
+//    }
+    
 }

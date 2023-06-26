@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		019BF0C42A488EF5009288EC /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019BF0C32A488EF5009288EC /* Model.swift */; };
-		019BF0C82A489EE0009288EC /* RegisterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019BF0C72A489EE0009288EC /* RegisterUser.swift */; };
-		01B00B0B2A44A3E600AAC674 /* ProductTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B00B0A2A44A3E600AAC674 /* ProductTableViewController.swift */; };
+		019BF0C42A488EF5009288EC /* ModelProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019BF0C32A488EF5009288EC /* ModelProducts.swift */; };
+		019BF0C82A489EE0009288EC /* UserUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019BF0C72A489EE0009288EC /* UserUtils.swift */; };
 		01B22E712A39D9AB0071AB9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B22E702A39D9AB0071AB9B /* AppDelegate.swift */; };
 		01B22E732A39D9AB0071AB9B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B22E722A39D9AB0071AB9B /* SceneDelegate.swift */; };
 		01B22E752A39D9AB0071AB9B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B22E742A39D9AB0071AB9B /* ViewController.swift */; };
@@ -41,9 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		019BF0C32A488EF5009288EC /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		019BF0C72A489EE0009288EC /* RegisterUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUser.swift; sourceTree = "<group>"; };
-		01B00B0A2A44A3E600AAC674 /* ProductTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewController.swift; sourceTree = "<group>"; };
+		019BF0C32A488EF5009288EC /* ModelProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelProducts.swift; sourceTree = "<group>"; };
+		019BF0C72A489EE0009288EC /* UserUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUtils.swift; sourceTree = "<group>"; };
 		01B22E6D2A39D9AB0071AB9B /* my first IOS app BALINK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "my first IOS app BALINK.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		01B22E702A39D9AB0071AB9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01B22E722A39D9AB0071AB9B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				01B22E6F2A39D9AB0071AB9B /* my first IOS app BALINK */,
+				01B22E7E2A39D9AD0071AB9B /* Info.plist */,
 				01B22E862A39D9AE0071AB9B /* my first IOS app BALINKTests */,
 				01B22E902A39D9AE0071AB9B /* my first IOS app BALINKUITests */,
 				01B22E6E2A39D9AB0071AB9B /* Products */,
@@ -109,18 +108,10 @@
 		01B22E6F2A39D9AB0071AB9B /* my first IOS app BALINK */ = {
 			isa = PBXGroup;
 			children = (
-				01B22E702A39D9AB0071AB9B /* AppDelegate.swift */,
-				01B22E722A39D9AB0071AB9B /* SceneDelegate.swift */,
-				01B22E742A39D9AB0071AB9B /* ViewController.swift */,
-				01B22E762A39D9AB0071AB9B /* Main.storyboard */,
-				01B00B0A2A44A3E600AAC674 /* ProductTableViewController.swift */,
-				01BED3A52A3AFAD400E0AF88 /* ProductsViewController.swift */,
-				01BED3A32A3AFA4200E0AF88 /* WellcomeScreenViewController.swift */,
-				01B22E792A39D9AD0071AB9B /* Assets.xcassets */,
-				01B22E7B2A39D9AD0071AB9B /* LaunchScreen.storyboard */,
-				01B22E7E2A39D9AD0071AB9B /* Info.plist */,
-				019BF0C32A488EF5009288EC /* Model.swift */,
-				019BF0C72A489EE0009288EC /* RegisterUser.swift */,
+				01E1E76F2A49AFC0006CD62C /* Delegate */,
+				01E1E76E2A497BD9006CD62C /* Utils */,
+				01E1E76C2A497B98006CD62C /* Screens */,
+				01E1E76B2A497B83006CD62C /* Models */,
 			);
 			path = "my first IOS app BALINK";
 			sourceTree = "<group>";
@@ -140,6 +131,44 @@
 				01B22E932A39D9AE0071AB9B /* my_first_IOS_app_BALINKUITestsLaunchTests.swift */,
 			);
 			path = "my first IOS app BALINKUITests";
+			sourceTree = "<group>";
+		};
+		01E1E76B2A497B83006CD62C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				019BF0C32A488EF5009288EC /* ModelProducts.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		01E1E76C2A497B98006CD62C /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				01B22E762A39D9AB0071AB9B /* Main.storyboard */,
+				01B22E792A39D9AD0071AB9B /* Assets.xcassets */,
+				01B22E7B2A39D9AD0071AB9B /* LaunchScreen.storyboard */,
+				01BED3A52A3AFAD400E0AF88 /* ProductsViewController.swift */,
+				01BED3A32A3AFA4200E0AF88 /* WellcomeScreenViewController.swift */,
+				01B22E742A39D9AB0071AB9B /* ViewController.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		01E1E76E2A497BD9006CD62C /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				019BF0C72A489EE0009288EC /* UserUtils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		01E1E76F2A49AFC0006CD62C /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				01B22E722A39D9AB0071AB9B /* SceneDelegate.swift */,
+				01B22E702A39D9AB0071AB9B /* AppDelegate.swift */,
+			);
+			path = Delegate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,13 +302,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				019BF0C42A488EF5009288EC /* Model.swift in Sources */,
-				019BF0C82A489EE0009288EC /* RegisterUser.swift in Sources */,
+				019BF0C42A488EF5009288EC /* ModelProducts.swift in Sources */,
+				019BF0C82A489EE0009288EC /* UserUtils.swift in Sources */,
 				01BED3A42A3AFA4200E0AF88 /* WellcomeScreenViewController.swift in Sources */,
 				01B22E752A39D9AB0071AB9B /* ViewController.swift in Sources */,
 				01B22E712A39D9AB0071AB9B /* AppDelegate.swift in Sources */,
 				01B22E732A39D9AB0071AB9B /* SceneDelegate.swift in Sources */,
-				01B00B0B2A44A3E600AAC674 /* ProductTableViewController.swift in Sources */,
 				01BED3A62A3AFAD400E0AF88 /* ProductsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
