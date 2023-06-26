@@ -20,6 +20,8 @@
 		01B22E942A39D9AE0071AB9B /* my_first_IOS_app_BALINKUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B22E932A39D9AE0071AB9B /* my_first_IOS_app_BALINKUITestsLaunchTests.swift */; };
 		01BED3A42A3AFA4200E0AF88 /* WellcomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BED3A32A3AFA4200E0AF88 /* WellcomeScreenViewController.swift */; };
 		01BED3A62A3AFAD400E0AF88 /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BED3A52A3AFAD400E0AF88 /* ProductsViewController.swift */; };
+		01E1E7712A49CD90006CD62C /* ProductUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E1E7702A49CD90006CD62C /* ProductUtils.swift */; };
+		01E1E7732A49CE6F006CD62C /* ModelUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E1E7722A49CE6F006CD62C /* ModelUser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		01B22E932A39D9AE0071AB9B /* my_first_IOS_app_BALINKUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = my_first_IOS_app_BALINKUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		01BED3A32A3AFA4200E0AF88 /* WellcomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WellcomeScreenViewController.swift; sourceTree = "<group>"; };
 		01BED3A52A3AFAD400E0AF88 /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
+		01E1E7702A49CD90006CD62C /* ProductUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductUtils.swift; sourceTree = "<group>"; };
+		01E1E7722A49CE6F006CD62C /* ModelUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelUser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				019BF0C32A488EF5009288EC /* ModelProducts.swift */,
+				01E1E7722A49CE6F006CD62C /* ModelUser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -158,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				019BF0C72A489EE0009288EC /* UserUtils.swift */,
+				01E1E7702A49CD90006CD62C /* ProductUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -305,10 +311,12 @@
 				019BF0C42A488EF5009288EC /* ModelProducts.swift in Sources */,
 				019BF0C82A489EE0009288EC /* UserUtils.swift in Sources */,
 				01BED3A42A3AFA4200E0AF88 /* WellcomeScreenViewController.swift in Sources */,
+				01E1E7732A49CE6F006CD62C /* ModelUser.swift in Sources */,
 				01B22E752A39D9AB0071AB9B /* ViewController.swift in Sources */,
 				01B22E712A39D9AB0071AB9B /* AppDelegate.swift in Sources */,
 				01B22E732A39D9AB0071AB9B /* SceneDelegate.swift in Sources */,
 				01BED3A62A3AFAD400E0AF88 /* ProductsViewController.swift in Sources */,
+				01E1E7712A49CD90006CD62C /* ProductUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

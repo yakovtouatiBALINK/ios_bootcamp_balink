@@ -31,5 +31,4 @@ class ProductsViewController: UIViewController, UITableViewDataSource {
         cell.textLabel?.text = products[indexPath.row]
         return cell
     }
-    
 }
