@@ -10,6 +10,7 @@ import UIKit
 // this is the last page
 class ProductsViewController: UIViewController, UITableViewDataSource {
     
+    var namePassed: String = ""
     let products = ["Apple Watch", "MacBook Pro", "IPhone 14 pro", "Airpods Pro", "Apple Keyboard"]
     
     @IBOutlet weak var tableView: UITableView!
@@ -17,7 +18,7 @@ class ProductsViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "PRODUCTS"
+        self.title = "WELLCOME \(namePassed)"
     }
     
     
@@ -32,3 +33,7 @@ class ProductsViewController: UIViewController, UITableViewDataSource {
         return cell
     }
 }
+
+
+
+// display the data that come from the view model in the cell

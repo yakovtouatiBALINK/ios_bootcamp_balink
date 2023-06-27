@@ -148,57 +148,11 @@
                         <outlet property="login" destination="sor-lM-4gC" id="Lgg-e7-wdi"/>
                         <outlet property="password" destination="eR4-6C-6uR" id="ekv-7s-kT1"/>
                         <outlet property="userName" destination="ggn-OB-FD6" id="62R-4G-yyL"/>
-                        <segue destination="uIS-JW-UqZ" kind="show" identifier="towelcome" id="20E-RD-RiO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-437.68115942028987" y="-110.49107142857143"/>
-        </scene>
-        <!--Wellcome Screen View Controller-->
-        <scene sceneID="YJa-6k-1CW">
-            <objects>
-                <viewController id="uIS-JW-UqZ" customClass="WellcomeScreenViewController" customModule="my_first_IOS_app_BALINK" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Sa3-T0-0O6">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wellcome someone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o2P-PQ-4jS">
-                                <rect key="frame" x="63" y="307" width="277.66666666666669" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="LAn-MF-aYw"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="32"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTc-C7-Wpu">
-                                <rect key="frame" x="81" y="537" width="252" height="127"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="127" id="5cA-QX-28U"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="Show Product"/>
-                                <connections>
-                                    <segue destination="hem-85-UFO" kind="show" id="8DV-ZF-S1y"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="8Di-cW-PLd"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="RTc-C7-Wpu" firstAttribute="leading" secondItem="8Di-cW-PLd" secondAttribute="leading" constant="80" id="4ip-Ue-Thg"/>
-                            <constraint firstItem="o2P-PQ-4jS" firstAttribute="top" secondItem="8Di-cW-PLd" secondAttribute="top" constant="219" id="FVR-yj-ul5"/>
-                            <constraint firstItem="o2P-PQ-4jS" firstAttribute="leading" secondItem="8Di-cW-PLd" secondAttribute="leading" constant="63" id="KaS-nz-KNd"/>
-                            <constraint firstItem="8Di-cW-PLd" firstAttribute="trailing" secondItem="RTc-C7-Wpu" secondAttribute="trailing" constant="82" id="gl8-kT-GYn"/>
-                            <constraint firstItem="8Di-cW-PLd" firstAttribute="bottom" secondItem="RTc-C7-Wpu" secondAttribute="bottom" constant="199" id="ofF-bk-2f9"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="GgL-Yo-rlJ"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="82a-A2-BMJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="479.71014492753625" y="-109.15178571428571"/>
         </scene>
         <!--Products View Controller-->
         <scene sceneID="JRl-M0-gIL">
@@ -232,7 +186,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NFk-NB-TRJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1418.840579710145" y="-109.15178571428571"/>
+            <point key="canvasLocation" x="410" y="-109"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="OGx-H5-Vdg">
