@@ -4,31 +4,35 @@
 //
 //  Created by yacov touati on 28/06/2023.
 //
-
 import SwiftUI
 
-struct CategorieView: View {
+struct ProductListView: View {
+    @StateObject private var productViewModel = ProductViewModel()
+    @State private var categories: [String] = []
+    
     var body: some View {
         VStack {
-//                    Text("Title")
-//                        .resizable()
-//                        .aspectRatio(contentMode: .fit)
-//                        .frame(height: 100)
-                    
-                    Text("categorys")
-                        .font(.headline)
-                        .foregroundColor(.primary)
+            if let error = productViewModel.error {
+                Text("Error: \(error.localizedDescription)")
+            } else if productViewModel.products.isEmpty {
+                ProgressView()
+            } else {
+                List(categories, id: \.self) { category in
+                    Text(category)
                 }
-                .padding()
-                .background(Color.white)
-                .cornerRadius(10)
-                .shadow(color: Color.gray.opacity(0.4), radius: 5, x: 0, y: 2)
             }
+        }
+        .onAppear {
+            Task {
+                await productViewModel.fetchProducts()
+                categories = productViewModel.getCategories(from: productViewModel.products)
+            }
+        }
+    }
 }
 
-
-struct CategorieView_Previews: PreviewProvider {
+struct ProductListView_Previews: PreviewProvider {
     static var previews: some View {
-        CategorieView()
+        ProductListView()
     }
 }

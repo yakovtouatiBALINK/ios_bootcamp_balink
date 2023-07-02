@@ -28,6 +28,7 @@
 		01A7EA3D2A5191B90023AB39 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A7EA3C2A5191B90023AB39 /* Login.swift */; };
 		01A7EA3F2A51A0AD0023AB39 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A7EA3E2A51A0AC0023AB39 /* Product.swift */; };
 		01A7EA412A51A0E00023AB39 /* ProductAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A7EA402A51A0E00023AB39 /* ProductAPI.swift */; };
+		01A7EA432A51AA0A0023AB39 /* CategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A7EA422A51AA0A0023AB39 /* CategoriesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		01A7EA3C2A5191B90023AB39 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		01A7EA3E2A51A0AC0023AB39 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		01A7EA402A51A0E00023AB39 /* ProductAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAPI.swift; sourceTree = "<group>"; };
+		01A7EA422A51AA0A0023AB39 /* CategoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				01A7EA212A4C709B0023AB39 /* CategorieView.swift */,
+				01A7EA422A51AA0A0023AB39 /* CategoriesViewModel.swift */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				01A7EA1E2A4C67D70023AB39 /* SingUpView.swift in Sources */,
 				01A7E9F32A4C60BA0023AB39 /* HomePageView.swift in Sources */,
 				01A7EA3D2A5191B90023AB39 /* Login.swift in Sources */,
+				01A7EA432A51AA0A0023AB39 /* CategoriesViewModel.swift in Sources */,
 				01A7EA372A51693D0023AB39 /* buttonView.swift in Sources */,
 				01A7EA222A4C709B0023AB39 /* CategorieView.swift in Sources */,
 				01A7EA2D2A4C81450023AB39 /* User.swift in Sources */,

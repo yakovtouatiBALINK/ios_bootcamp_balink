@@ -44,18 +44,18 @@ struct LoginView: View {
             .padding()
             
 //            if isRegistered {
-                NavigationLink(destination: CategorieView()) {
-                    Text("Show Categories")
-                        .font(.headline)
-                        .padding()
-                        .frame(width: 200, height: 50)
-                        .foregroundColor(.white)
-                        .background(Color.green)
-                        .cornerRadius(10)
-                }
-                .padding()
-            }
-//        }
+//                NavigationLink(destination: CategorieView()) {
+//                    Text("Show Categories")
+//                        .font(.headline)
+//                        .padding()
+//                        .frame(width: 200, height: 50)
+//                        .foregroundColor(.white)
+//                        .background(Color.green)
+//                        .cornerRadius(10)
+//                }
+//                .padding()
+//            }
+        }
         .padding()
     }
 }

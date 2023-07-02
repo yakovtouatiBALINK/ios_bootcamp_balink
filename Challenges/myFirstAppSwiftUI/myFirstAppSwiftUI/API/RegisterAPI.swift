@@ -30,17 +30,25 @@ struct UserAPI {
         }
         
         if httpResponse.statusCode == 201{
-            let token = String(data: data, encoding: .utf8)
+            
+            
+            let user = try parseJSON(userData: data)
             DispatchQueue.main.async {
-                UserDefaults.standard.set(token, forKey: "Token")
+                ProductAPI.shared.token = user.token 
+                //UserDefaults.standard.set(token, forKey: "Token")
             }
-            print(token ?? "")
             
         } else {
             let errorResponse = try JSONDecoder().decode(ErrorResponse.self, from: data)
             throw APIError.registrationFailed(code: httpResponse.statusCode, message: errorResponse.message)
         }
     }
+    
+    func parseJSON(userData: Data) throws -> LoginResponse {
+          let decoder = JSONDecoder()
+          return try decoder.decode(LoginResponse.self, from: userData)
+          
+      }
 }
 
 enum APIError: Error {
