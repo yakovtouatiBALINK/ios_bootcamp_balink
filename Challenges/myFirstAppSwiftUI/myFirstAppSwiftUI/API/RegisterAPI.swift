@@ -7,17 +7,21 @@
 
 import Foundation
 
-class UserAPI {
-    static func createUser(firstname: String, lastname: String, username: String, password: String) async throws -> String {
-        guard let url = URL(string: "https://balink.onlink.dev/users/register") else {
+struct UserAPI {
+    static var shared = UserAPI()
+    private let urlregis = "https://balink.onlink.dev/users/register"
+    
+    func createUser(firstname: String, lastname: String, username: String, password: String) async throws -> Void {
+        guard let url = URL(string: urlregis) else {
             throw APIError.invalidURL
         }
         
         let user = User(firstname: firstname, lastname: lastname, username: username, password: password)
-
+        
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.httpBody = try JSONEncoder().encode(user)
         
         let (data, response) = try await URLSession.shared.data(for: request)
@@ -25,20 +29,17 @@ class UserAPI {
             throw APIError.invalidResponse
         }
         
-        if httpResponse.statusCode == 200 {
-            return try getToken(from: data)
+        if httpResponse.statusCode == 201{
+            let token = String(data: data, encoding: .utf8)
+            DispatchQueue.main.async {
+                UserDefaults.standard.set(token, forKey: "Token")
+            }
+            print(token ?? "")
+            
         } else {
             let errorResponse = try JSONDecoder().decode(ErrorResponse.self, from: data)
             throw APIError.registrationFailed(code: httpResponse.statusCode, message: errorResponse.message)
         }
-    }
-    
-    static func getToken(from data: Data) throws -> String {
-        let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-        guard let token = jsonResponse?["token"] as? String else {
-            throw APIError.tokenNotFound
-        }
-        return token
     }
 }
 
@@ -47,8 +48,16 @@ enum APIError: Error {
     case invalidResponse
     case tokenNotFound
     case registrationFailed(code: Int, message: String)
+    case requestFailed(code: Int, message: String)
 }
-
+    
 struct ErrorResponse: Codable {
     let message: String
 }
+
+
+
+
+
+
+

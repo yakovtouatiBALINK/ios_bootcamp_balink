@@ -1,23 +1,20 @@
 //
-//  VeiwModelSingUp.swift
+//  LoginViewModel.swift
 //  myFirstAppSwiftUI
 //
-//  Created by yacov touati on 28/06/2023.
+//  Created by yacov touati on 02/07/2023.
 //
 
 import Foundation
 
-class SingUp: ObservableObject {
-    @Published var firstname: String = ""
-    @Published var lastname: String = ""
+class LoginViewModel: ObservableObject {
     @Published var username: String = ""
     @Published var password: String = ""
     
-//    @Published var token: String = ""
     @Published var registrationStatus: String = ""
     
-    func registerUser() async throws {
-        guard isInputValid(firstname: firstname, lastname: lastname, username: username, password: password) else {
+    func loginUser() async throws {
+        guard isInputValid(username: username, password: password) else {
             DispatchQueue.main.async {
                 self.registrationStatus = "Invalid input. Please check the form."
             }
@@ -25,9 +22,8 @@ class SingUp: ObservableObject {
             return
         }
         do {
-            try await UserAPI.shared.createUser(firstname: firstname, lastname: lastname, username: username, password: password)
+            try await LoginApi.loginUser(username: username, password: password)
             let token = UserDefaults.standard.string(forKey: "Token") ?? ""
-//            self.token = token
             DispatchQueue.main.async {
                 self.registrationStatus = "User registered successfully with token: \(token)"
                 print(self.registrationStatus)
@@ -57,21 +53,18 @@ class SingUp: ObservableObject {
     }
 }
         
-func isInputValid(firstname: String, lastname: String, username: String, password: String) -> Bool {
-    let nameRegex = #"^[a-zA-Z]+$"#
+func isInputValid(username: String, password: String) -> Bool {
     let emailRegex = #"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"#
     let numberRegex = #"^[0-9]+$"#
     
-    let isFirstNameValid = firstname.matches(nameRegex)
-    let isLastNameValid = lastname.matches(nameRegex)
-    let isUsernameValid = username.matches(emailRegex)
-    let isPasswordValid = password.matches(numberRegex)
+    let isUsernameValid = username.regexMatches(emailRegex)
+    let isPasswordValid = password.regexMatches(numberRegex)
     
-    return isFirstNameValid && isLastNameValid && isUsernameValid && isPasswordValid
+    return isUsernameValid && isPasswordValid
 }
 
 extension String {
-    func matches(_ regex: String) -> Bool {
+    func regexMatches(_ regex: String) -> Bool {
         return range(of: regex, options: .regularExpression) != nil
     }
 }

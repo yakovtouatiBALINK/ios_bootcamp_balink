@@ -8,41 +8,65 @@
 import SwiftUI
 
 struct SingUpView: View {
-    @StateObject private var signUp = SignUp()
-    
-    @State private var firstName: String = ""
-    @State private var lastName: String = ""
-    @State private var userName: String = ""
-    @State private var password: String = ""
+    @StateObject private var signUp = SingUp()
+    //    @State private var isRegistered = false
     
     var body: some View {
         VStack {
-            Text("Registration")
+            Text("Sing Up")
                 .font(.largeTitle)
                 .padding()
             
-            TextFieldView(title:"Last Name", text: $firstName)
-            TextFieldView(title:"First Name", text: $lastName)
-            TextFieldView(title:"User Name", text: $userName)
-            TextFieldView(title:"Password", text: $password)
-
-            NavigationLink(destination: CategorieView()) {
-                Text("Show Categories")
-                    .font(.headline)
-                    .padding()
-                    .frame(width: 200, height: 50)
-                    .foregroundColor(.white)
-                    .background(Color.green)
-                    .cornerRadius(10)
-            }
-            .padding()
+            TextFieldView(title: "First Name", text: $signUp.firstname)
+            TextFieldView(title: "Last Name", text: $signUp.lastname)
+            TextFieldView(title: "User Name", text: $signUp.username)
+            TextFieldView(title: "Password", text: $signUp.password)
+            
+            
+            Button("sinjj", action: action)
+            
+            
+            //            Button(action: {
+            //                Task {
+            //                    do {
+            //                        try await signUp.registerUser()
+            ////                        isRegistered = true
+            //                    } catch {
+            //                        print("Registration error: \(error)")
+            //                    }
+            //                }
+            //            }) {
+            ////                if isRegistered {
+            //                    NavigationLink(destination: CategorieView()) {
+            //                        Text("Show Categories")
+            //                            .font(.headline)
+            //                            .padding()
+            //                            .frame(width: 200, height: 50)
+            //                            .foregroundColor(.white)
+            //                            .background(Color.green)
+            //                            .cornerRadius(10)
+            //                    }
+            //                    .padding()
+            //                }
+            //            }
+                .padding()
         }
-        .padding()
+    }
+    func action (){
+        Task {
+            do {
+                try await signUp.registerUser()
+                //                        isRegistered = true
+            } catch {
+                print("Registration error: \(error)")
+            }
+            
+        }
     }
 }
-
-struct SingUpViewView_Previews: PreviewProvider {
-    static var previews: some View {
-        SingUpView()
+    
+    struct SingUpViewView_Previews: PreviewProvider {
+        static var previews: some View {
+            SingUpView()
+        }
     }
-}
