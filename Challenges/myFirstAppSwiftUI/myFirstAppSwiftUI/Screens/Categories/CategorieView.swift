@@ -16,16 +16,29 @@ struct CategoriesListView: View {
                 NavigationLink(destination: ProductView(categoriesViewModel: categoriesViewModel, selectedCategory: $categorySelected ) ,isActive: $isActive) {}
                 List(categoriesViewModel.categories, id: \.self) { category in
                     Button(action: {
-                        print("bjbhil")
                         categorySelected = category
                         isActive = true
                     }) {
                         Text(category.capitalized)
+                            .font(.title2)
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(
+                                RoundedRectangle(cornerRadius: 12)
+                                    .fill(Color.blue)
+                            )
                     }
+                    .buttonStyle(PlainButtonStyle())
                 }
-                
+                .listStyle(PlainListStyle())
+                .padding()
             }
         }
+        .foregroundColor(.white)
+        .font(.title)
+        .animation(.default)
         .onAppear {
             Task {
                 await categoriesViewModel.fetchProducts()  // func that get all products
