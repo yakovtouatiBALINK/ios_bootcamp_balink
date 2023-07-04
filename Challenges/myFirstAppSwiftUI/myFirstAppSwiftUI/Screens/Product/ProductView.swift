@@ -26,8 +26,30 @@ struct ProductView: View {
                         .font(.title)
                         .fontWeight(.bold)
                     
-                    createDescriptionView(product: product, isShowingDescription: $isShowingDescription)
-                    
+                    Text("Description")
+                        .font(.title3)
+                        .fontWeight(.bold)
+                        .foregroundColor(.blue)
+                        .padding(.vertical, 8)
+                        .padding(.horizontal, 12)
+                        .background(
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(Color.green.opacity(0.8), lineWidth: 2)
+                                    .background(Color.white)
+                            }
+                        )
+                        .onTapGesture {
+                            selectedProduct = product
+                            isShowingDescription = true
+                        }
+                        .alert(isPresented: $isShowingDescription) {
+                            Alert(
+                                title: Text("Description"),
+                                message: Text(selectedProduct?.description ?? ""),
+                                dismissButton: .default(Text("close"))
+                            )
+                        }
                     Text("thumbnail")
                         .font(.title3)
                         .fontWeight(.bold)
@@ -76,44 +98,45 @@ extension ProductView {
             )
         }
     }
-    
-    
-    func createDescriptionView(product: Product, isShowingDescription: Binding<Bool>) -> some View {
-        return Text("Description:")
-            .font(.title3)
-            .fontWeight(.bold)
-            .foregroundColor(.blue)
-            .padding(.vertical, 8)
-            .padding(.horizontal, 12)
-            .background(
-                ZStack {
-                    RoundedRectangle(cornerRadius: 8)
-                        .stroke(Color.blue, lineWidth: 2)
-                        .background(Color.white)
-                }
-            )
-            .onTapGesture {
-                isShowingDescription.wrappedValue = true
-            }
-            .alert(isPresented: Binding<Bool>(
-                get: { isShowingDescription.wrappedValue && selectedProduct?.id == product.id },
-                set: { _ in }
-            )) {
-                Alert(
-                    title: Text("תיאור"),
-                    message: Text(product.description),
-                    dismissButton: .default(Text("סגור")) {
-                        isShowingDescription.wrappedValue = false
-                    }
-                )
-            }
-    }
 }
-
-
-
-
-
+    
+//    func createDescriptionView(product: Product, isShowingDescription: Binding<Bool>) -> some View {
+//        return Text("Description")
+//            .font(.title3)
+//            .fontWeight(.bold)
+//            .foregroundColor(.blue)
+//            .padding(.vertical, 8)
+//            .padding(.horizontal, 12)
+//            .background(
+//                ZStack {
+//                    RoundedRectangle(cornerRadius: 8)
+//                        .stroke(Color.blue, lineWidth: 2)
+//                        .background(Color.white)
+//                }
+//            )
+//            .onTapGesture {
+//                isShowingDescription.wrappedValue = true
+//            }
+//            .alert(isPresented: Binding(
+//                get: { isShowingDescription.wrappedValue && selectedProduct?.id == product.id },
+//                set: { newValue in
+//                    isShowingDescription.wrappedValue = newValue
+//                }
+//            )) {
+//                Alert(
+//                    title: Text("תיאור"),
+//                    message: Text(product.description),
+//                    dismissButton: .default(Text("סגור")) {
+//                        isShowingDescription.wrappedValue = false
+//                    }
+//                )
+//            }
+//    }
+//}
+//
+//
+//
+//
 
 
 

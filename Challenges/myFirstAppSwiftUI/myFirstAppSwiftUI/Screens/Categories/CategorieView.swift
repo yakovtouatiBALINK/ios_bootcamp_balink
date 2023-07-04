@@ -27,7 +27,7 @@ struct CategoriesListView: View {
                             .padding()
                             .background(
                                 RoundedRectangle(cornerRadius: 12)
-                                    .fill(Color.blue)
+                                    .fill(Color.green.opacity(0.6))
                             )
                     }
                     .buttonStyle(PlainButtonStyle())

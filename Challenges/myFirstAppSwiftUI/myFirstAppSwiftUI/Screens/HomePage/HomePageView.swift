@@ -16,11 +16,11 @@ struct HomePageView: View {
                     .padding()
                 
                 NavigationLink(destination: SingUpView()) {
-                    HomePageButton("Sing Up", color: .blue)
+                    HomePageButton("Sing Up", color: .green.opacity(0.8))
                 }
                 NavigationLink(destination: CategoriesListView()) {
 //                NavigationLink(destination: LoginView()) {
-                    HomePageButton("Login", color: .orange)
+                    HomePageButton("Login", color: .green.opacity(0.8))
                 }
                 .padding()
             }
