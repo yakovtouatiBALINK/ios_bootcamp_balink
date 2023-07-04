@@ -7,6 +7,7 @@
 import SwiftUI
 
 struct HomePageView: View {
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -15,37 +16,28 @@ struct HomePageView: View {
                     .padding()
                 
                 NavigationLink(destination: SingUpView()) {
-                    Text("Sing Up")
-                        .font(.headline)
-                        .padding()
-                        .frame(width: 200, height: 50)
-                        .foregroundColor(.white)
-                        .background(Color.blue)
-                        .cornerRadius(10)
+                    HomePageButton("Sing Up", color: .blue)
                 }
-                
-                NavigationLink(destination: LoginView()) {
-                    Text("Login")
-                        .font(.headline)
-                        .padding()
-                        .frame(width: 200, height: 50)
-                        .foregroundColor(.white)
-                        .background(Color.orange)
-                        .cornerRadius(10)
+                NavigationLink(destination: CategoriesListView()) {
+//                NavigationLink(destination: LoginView()) {
+                    HomePageButton("Login", color: .orange)
                 }
                 .padding()
             }
         }
     }
+    
+    func HomePageButton(_ title: String, color: Color) -> some View {
+        Text(title)
+            .font(.headline)
+            .padding()
+            .frame(width: 200, height: 50)
+            .foregroundColor(.white)
+            .background(color)
+            .cornerRadius(10)
+    }
 }
 
-//    func loginButtonTapped() {
-//        print("Login button tapped")
-//    }
-
-//    func signUpButtonTapped() {
-//        print("Sign Up button tapped")
-//    }
 struct WelcomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomePageView()

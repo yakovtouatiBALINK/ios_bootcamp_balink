@@ -27,7 +27,7 @@ struct LoginView: View {
                     .foregroundColor(.white)
                     .background(Color.green)
                     .cornerRadius(10)
-                NavigationLink(destination: ProductListView(), isActive: $isRegistered) {
+                NavigationLink(destination: CategoriesListView(), isActive: $isRegistered) {
                     EmptyView()
                 }
             }

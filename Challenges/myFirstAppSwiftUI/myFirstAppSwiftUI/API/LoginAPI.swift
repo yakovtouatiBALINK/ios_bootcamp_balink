@@ -36,9 +36,9 @@ struct LoginApi {
             print(firstName ?? "")
             print(lastName ?? "")
             
-            DispatchQueue.main.async {
-                ProductAPI.shared.token = token
-            }
+//            DispatchQueue.main.async {
+//                ProductAPI.shared.token = token
+//            }
             
             print("First Name: \(firstName ?? "")")
             print("Last Name: \(lastName ?? "")")

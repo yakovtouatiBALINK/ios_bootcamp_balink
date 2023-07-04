@@ -32,11 +32,11 @@ struct UserAPI {
         if httpResponse.statusCode == 201{
             
             
-            let user = try parseJSON(userData: data)
-            DispatchQueue.main.async {
-                ProductAPI.shared.token = user.token
-                //UserDefaults.standard.set(token, forKey: "Token")
-            }
+//            let user = try parseJSON(userData: data)
+//            DispatchQueue.main.async {
+//                ProductAPI.shared.token = user.token
+//                //UserDefaults.standard.set(token, forKey: "Token")
+//            }
             
         } else {
             let errorResponse = try JSONDecoder().decode(ErrorResponse.self, from: data)

@@ -30,7 +30,7 @@ struct SingUpView: View {
                 .background(Color.green)
                 .cornerRadius(10)
             
-            NavigationLink(destination: ProductListView(), isActive: $isRegistered) {
+            NavigationLink(destination: CategoriesListView(), isActive: $isRegistered) {
                 EmptyView()
             }
         }
