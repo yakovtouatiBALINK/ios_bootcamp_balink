@@ -12,25 +12,29 @@ struct SingUpView: View {
     @State private var isRegistered = false
     
     var body: some View {
-        NavigationView {
-            VStack {
-                Text("Sing Up")
-                    .font(.largeTitle)
-                    .padding()
-                
-                TextFieldView(title: "First Name", text: $signUp.firstname)
-                TextFieldView(title: "Last Name", text: $signUp.lastname)
-                TextFieldView(title: "User Name", text: $signUp.username)
-                TextFieldView(title: "Password", text: $signUp.password)
-                
-                Button("Sign Up", action: action)
-                
-                NavigationLink(destination: ProductListView(), isActive: $isRegistered) {
-                    EmptyView()
-                }
+        VStack {
+            Text("Sing Up")
+                .font(.largeTitle)
+                .padding()
+            
+            TextFieldView(title: "First Name", text: $signUp.firstname)
+            TextFieldView(title: "Last Name", text: $signUp.lastname)
+            TextFieldView(title: "User Name", text: $signUp.username)
+            TextFieldView(title: "Password", text: $signUp.password)
+            
+            Button("Sign Up", action: action)
+                .font(.headline)
+                .padding()
+                .frame(width: 200, height: 50)
+                .foregroundColor(.white)
+                .background(Color.green)
+                .cornerRadius(10)
+            
+            NavigationLink(destination: ProductListView(), isActive: $isRegistered) {
+                EmptyView()
             }
-            .padding()
         }
+        .padding()
     }
     
     func action() {
@@ -45,8 +49,8 @@ struct SingUpView: View {
     }
 }
 
-    struct SingUpViewView_Previews: PreviewProvider {
-        static var previews: some View {
-            SingUpView()
-        }
+struct SingUpViewView_Previews: PreviewProvider {
+    static var previews: some View {
+        SingUpView()
     }
+}

@@ -8,7 +8,7 @@
 import Foundation
 
 struct LoginApi {
-    static func loginUser(username: String, password: String) async throws -> Void {
+    static func loginUserFromAPI(username: String, password: String) async throws -> Void {
         guard let url = URL(string: "https://balink.onlink.dev/register") else {
             throw APIError.invalidURL
         }
@@ -26,14 +26,18 @@ struct LoginApi {
             throw APIError.invalidResponse
         }
         
-        if httpResponse.statusCode == 201{
+        if httpResponse.statusCode == 201 {
             let jsonResponse = try JSONDecoder().decode(LoginResponse.self, from: data)
             let token = jsonResponse.token
             let firstName = jsonResponse.firstname
             let lastName = jsonResponse.lastname
             
+            print(token ?? "")
+            print(firstName ?? "")
+            print(lastName ?? "")
+            
             DispatchQueue.main.async {
-                UserDefaults.standard.set(token, forKey: "Token")
+                ProductAPI.shared.token = token
             }
             
             print("First Name: \(firstName ?? "")")
@@ -57,3 +61,31 @@ struct LoginApi {
         let message: String
     }
 }
+
+
+
+//        func getProduct() async throws -> [Product] {
+//            guard let token = UserDefaults.standard.string(forKey: "Token") else {
+//                throw APIError.tokenNotFound
+//            }
+//
+//            guard let url = URL(string: "https://balink.onlink.dev/register") else {
+//                throw APIError.invalidURL
+//            }
+//
+//            var request = URLRequest(url: url)
+//            request.httpMethod = "GET"
+//            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//            request.addValue("application/json", forHTTPHeaderField: "Accept")
+//            request.addValue(token, forHTTPHeaderField: "Authorization")
+//
+//            let (data, response) = try await URLSession.shared.data(for: request)
+//            if let res = response as? HTTPURLResponse,
+//               res.statusCode == 200 {
+//                let products = try JSONDecoder().decode([Product].self, from: data)
+//                print(products)
+//                return products
+//            }  else {
+//                throw APIError.invalidResponse
+//            }
+//        }

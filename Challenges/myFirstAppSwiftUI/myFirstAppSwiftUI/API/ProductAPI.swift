@@ -35,19 +35,12 @@ struct ProductAPI {
         
         let (data, response) = try await URLSession.shared.data(for: request)
         if let res = response as? HTTPURLResponse,
-           res.statusCode == 200{
+           res.statusCode == 200 {
             let products = try JSONDecoder().decode([Product].self, from: data)
-            print(products)
             return products
         }  else {
             throw APIError.invalidResponse
         }
-        
-        
-        //         else {
-        //            let errorResponse = try JSONDecoder().decode(ErrorResponse.self, from: data)
-        //            throw APIError.requestFailed(code: httpResponse.statusCode, message: errorResponse.message)
-        //        }
     }
 }
 

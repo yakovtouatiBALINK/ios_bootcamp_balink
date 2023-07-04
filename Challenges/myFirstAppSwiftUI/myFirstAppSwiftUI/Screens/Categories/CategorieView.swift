@@ -8,7 +8,7 @@ import SwiftUI
 
 struct ProductListView: View {
     @StateObject private var productViewModel = ProductViewModel()
-    @State private var categories: [String] = []
+//    @State private var categories: [String] = []
     
     var body: some View {
         VStack {
@@ -17,15 +17,15 @@ struct ProductListView: View {
             } else if productViewModel.products.isEmpty {
                 ProgressView()
             } else {
-                List(categories, id: \.self) { category in
-                    Text(category)
+                List(productViewModel.categories, id: \.self) { category in
+                    Text(category.capitalized)
                 }
             }
         }
         .onAppear {
             Task {
                 await productViewModel.fetchProducts()
-                categories = productViewModel.getCategories(from: productViewModel.products)
+              
             }
         }
     }

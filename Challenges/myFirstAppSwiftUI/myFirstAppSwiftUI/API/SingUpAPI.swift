@@ -34,7 +34,7 @@ struct UserAPI {
             
             let user = try parseJSON(userData: data)
             DispatchQueue.main.async {
-                ProductAPI.shared.token = user.token 
+                ProductAPI.shared.token = user.token
                 //UserDefaults.standard.set(token, forKey: "Token")
             }
             
@@ -45,10 +45,10 @@ struct UserAPI {
     }
     
     func parseJSON(userData: Data) throws -> LoginResponse {
-          let decoder = JSONDecoder()
-          return try decoder.decode(LoginResponse.self, from: userData)
-          
-      }
+        let decoder = JSONDecoder()
+        return try decoder.decode(LoginResponse.self, from: userData)
+        
+    }
 }
 
 enum APIError: Error {

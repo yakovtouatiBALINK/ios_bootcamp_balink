@@ -22,11 +22,11 @@ class LoginViewModel: ObservableObject {
             return
         }
         do {
-            try await LoginApi.loginUser(username: username, password: password)
+            try await LoginApi.loginUserFromAPI(username: username, password: password)
             let token = UserDefaults.standard.string(forKey: "Token") ?? ""
+            print(token)
             DispatchQueue.main.async {
                 self.registrationStatus = "User registered successfully with token: \(token)"
-                print(self.registrationStatus)
             }
             print(self.registrationStatus)
         } catch APIError.invalidURL {
