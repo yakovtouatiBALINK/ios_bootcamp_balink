@@ -13,6 +13,13 @@ struct CategoriesListView: View {
             } else if categoriesViewModel.products.isEmpty {
                 ProgressView()
             } else {
+                NavigationLink(destination: FevoriteView(categoriesViewModel: categoriesViewModel), label: {Image(systemName: "star.fill")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 25, height: 25)
+                    .foregroundColor(.yellow)})
+                .padding()
+                
                 NavigationLink(destination: ProductView(categoriesViewModel: categoriesViewModel, selectedCategory: $categorySelected ) ,isActive: $isActive) {}
                 List(categoriesViewModel.categories, id: \.self) { category in
                     Button(action: {

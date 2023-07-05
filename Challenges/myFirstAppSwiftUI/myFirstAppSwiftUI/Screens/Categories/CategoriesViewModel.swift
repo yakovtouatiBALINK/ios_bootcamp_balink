@@ -9,7 +9,6 @@ import Foundation
 import SwiftUI
 
 class CategoriesViewModel: ObservableObject {
-    
     @Published var products: [Product] = []
     @Published var categories: [String] = []
     @Published var error: Error?
@@ -40,14 +39,28 @@ class CategoriesViewModel: ObservableObject {
         }
         return uniqueCategories
     }
+    
+    func toggleFavorite(for product: Product) {
+        if favorites.contains(product.id) {
+            favorites.remove(product.id)
+            print(favorites)
+        } else {
+            favorites.insert(product.id)
+            print(favorites)
+        }
+        
+        saveFavoritesToUserDefaults()
+    }
+    
+    func isFavorite(_ product: Product) -> Bool {
+        return favorites.contains(product.id)
+    }
+    
+    private func saveFavoritesToUserDefaults() {
+        UserDefaults.standard.setValue(Array(favorites), forKey: "FavoriteProductIDs")
+    }
+    
+    func getFavoriteProducts() -> [Product] {
+        return products.filter { favorites.contains($0.id) }
+    }
 }
-
-
-
-
-
-//func getValues<T: Hashable>(from products: [Product], propertyExtractor: (Product) -> T) -> [T] {
-//    let values = products.map { propertyExtractor($0) }
-//    return Array(Set(values))
-//}
-// let descriptions = getValues(from: products) { $0.description }

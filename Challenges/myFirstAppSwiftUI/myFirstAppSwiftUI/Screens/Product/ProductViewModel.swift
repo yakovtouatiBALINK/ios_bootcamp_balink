@@ -10,7 +10,6 @@ import SwiftUI
 
 class ProductViewModel: ObservableObject {
     static var shared = ProductViewModel()
-    @Published var favorites: Set<Int> = []
     
     @Published var products: [Product] = []
     @Published var allProducts: [Product] = []
@@ -42,20 +41,6 @@ class ProductViewModel: ObservableObject {
                     .cornerRadius(12)
             )
         }
-    }
-    
-    func toggleFavorite(for product: Product) {
-        if favorites.contains(product.id) {
-            favorites.remove(product.id)
-            print(favorites)
-        } else {
-            favorites.insert(product.id)
-            print(favorites)
-        }
-    }
-    
-    func isFavorite(_ product: Product) -> Bool {
-        favorites.contains(product.id)
     }
 }
 

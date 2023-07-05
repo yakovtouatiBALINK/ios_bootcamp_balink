@@ -7,20 +7,20 @@
 
 import SwiftUI
 
+
 struct ProductView: View {
     @StateObject var categoriesViewModel: CategoriesViewModel
     @Binding var selectedCategory: String
     @State var products: [Product] = []
     @State private var isShowingDescription = false
     @State private var selectedProduct: Product? = nil
-    
-    let vm = ProductViewModel.shared
+//    @State private var favorites: Set<Int> = []
     
     var body: some View {
         List(products, id: \.id) { product in
             HStack(spacing: 16) {
                 VStack(alignment: .leading, spacing: 8) {
-                    vm.createProductImage(product: product)
+                    ProductViewModel.shared.createProductImage(product: product)
                     
                     Text(product.title)
                         .font(.title)
@@ -28,13 +28,12 @@ struct ProductView: View {
                         .foregroundColor(Color(red: 0.0, green: 0.5, blue: 0.0))
                     
                     createDescriptionView(for: product)
-                    
                     HStack {
                         Spacer()
                         Button(action: {
-                            vm.toggleFavorite(for: product)
+                            categoriesViewModel.toggleFavorite(for: product)
                         }) {
-                            Image(systemName: vm.favorites.contains(product.id) ? "star.fill" : "star")
+                            Image(systemName: categoriesViewModel.isFavorite(product) ? "star.fill" : "star")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 35, height: 35)
@@ -53,14 +52,11 @@ struct ProductView: View {
             .padding(.vertical, 16)
         }
         .onAppear {
-            products = vm.getProductByCategory(category: selectedCategory, allProducts: categoriesViewModel.products)
+            products = ProductViewModel.shared.getProductByCategory(category: selectedCategory, allProducts: categoriesViewModel.products)
         }
         .navigationTitle(selectedCategory.capitalized)
     }
-}
-
-extension ProductView {
-    private func createDescriptionView(for product: Product) -> some View {
+    func createDescriptionView(for product: Product) -> some View {
         return Text("Description")
             .font(.title3)
             .fontWeight(.bold)
@@ -87,6 +83,34 @@ extension ProductView {
             }
     }
 }
+
+
+
+
+
+
+
+
+//extension ProductView {
+//    private func createFavorite(for product: Product) -> some View {
+//        if favorites.contains(product.id) {
+//            favorites.remove(product.id)
+//            print(favorites)
+//        } else {
+//            favorites.insert(product.id)
+//            print(favorites)
+//        }
+//
+//        return Image(systemName: favorites.contains(product.id) ? "star.fill" : "star")
+//            .resizable()
+//            .aspectRatio(contentMode: .fit)
+//            .frame(width: 35, height: 35)
+//            .foregroundColor(.yellow)
+//
+//            .padding(.trailing, 3)
+//    }
+//}
+
 
 
 

@@ -8,13 +8,23 @@
 import SwiftUI
 
 struct FevoriteView: View {
+    @StateObject var categoriesViewModel: CategoriesViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List(categoriesViewModel.getFavoriteProducts(), id: \.id) { product in
+            Text(product.title)
+        }
     }
 }
 
-struct FevoriteView_Previews: PreviewProvider {
-    static var previews: some View {
-        FevoriteView()
-    }
-}
+
+
+
+
+
+
+//struct FevoriteView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FevoriteView()
+//    }
+//}
