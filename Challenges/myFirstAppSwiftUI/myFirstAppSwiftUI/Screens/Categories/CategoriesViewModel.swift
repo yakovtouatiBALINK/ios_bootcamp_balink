@@ -6,12 +6,14 @@
 //
 
 import Foundation
+import SwiftUI
 
 class CategoriesViewModel: ObservableObject {
     
     @Published var products: [Product] = []
     @Published var categories: [String] = []
     @Published var error: Error?
+    @Published private var favorites: Set<Int> = []
     
     func fetchProducts() async {
         Task {
@@ -39,6 +41,10 @@ class CategoriesViewModel: ObservableObject {
         return uniqueCategories
     }
 }
+
+
+
+
 
 //func getValues<T: Hashable>(from products: [Product], propertyExtractor: (Product) -> T) -> [T] {
 //    let values = products.map { propertyExtractor($0) }

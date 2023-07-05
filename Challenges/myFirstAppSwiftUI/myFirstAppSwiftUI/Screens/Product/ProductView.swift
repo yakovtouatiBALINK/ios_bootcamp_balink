@@ -14,129 +14,79 @@ struct ProductView: View {
     @State private var isShowingDescription = false
     @State private var selectedProduct: Product? = nil
     
+    let vm = ProductViewModel.shared
     
     var body: some View {
         List(products, id: \.id) { product in
             HStack(spacing: 16) {
                 VStack(alignment: .leading, spacing: 8) {
-                    createProductImage(product: product)
-                    
+                    vm.createProductImage(product: product)
                     
                     Text(product.title)
                         .font(.title)
                         .fontWeight(.bold)
+                        .foregroundColor(Color(red: 0.0, green: 0.5, blue: 0.0))
                     
-                    Text("Description")
-                        .font(.title3)
-                        .fontWeight(.bold)
-                        .foregroundColor(.blue)
-                        .padding(.vertical, 8)
-                        .padding(.horizontal, 12)
-                        .background(
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 8)
-                                    .stroke(Color.green.opacity(0.8), lineWidth: 2)
-                                    .background(Color.white)
-                            }
-                        )
-                        .onTapGesture {
-                            selectedProduct = product
-                            isShowingDescription = true
+                    createDescriptionView(for: product)
+                    
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            vm.toggleFavorite(for: product)
+                        }) {
+                            Image(systemName: vm.favorites.contains(product.id) ? "star.fill" : "star")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 35, height: 35)
+                                .foregroundColor(.yellow)
                         }
-                        .alert(isPresented: $isShowingDescription) {
-                            Alert(
-                                title: Text("Description"),
-                                message: Text(selectedProduct?.description ?? ""),
-                                dismissButton: .default(Text("close"))
-                            )
-                        }
-                    Text("thumbnail")
-                        .font(.title3)
-                        .fontWeight(.bold)
-                    Text(product.thumbnail)
-                        .font(.body)
-                        .foregroundColor(.gray)
+                        .padding(.trailing, 3)
+                    }
                     
                     Text("$\(product.price)")
                         .font(.title3)
                         .fontWeight(.semibold)
                         .foregroundColor(.green)
-                    
+                    Spacer()
                 }
             }
             .padding(.vertical, 16)
         }
         .onAppear {
-            products = ProductViewModel.shared.getProductByCategory(category: selectedCategory, allProducts: categoriesViewModel.products)
+            products = vm.getProductByCategory(category: selectedCategory, allProducts: categoriesViewModel.products)
         }
         .navigationTitle(selectedCategory.capitalized)
     }
 }
 
 extension ProductView {
-    func createProductImage(product: Product) -> some View {
-        if let firstImageURL = product.images.first, let imageURL = URL(string: firstImageURL) {
-            return AnyView(
-                AsyncImage(url: imageURL) { image in
-                    image
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .cornerRadius(12)
-                } placeholder: {
-                    Image(systemName: "photo") // Placeholder image
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .cornerRadius(12)
+    private func createDescriptionView(for product: Product) -> some View {
+        return Text("Description")
+            .font(.title3)
+            .fontWeight(.bold)
+            .foregroundColor(.blue)
+            .padding(.vertical, 8)
+            .padding(.horizontal, 12)
+            .background(
+                ZStack {
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(Color.green.opacity(0.8), lineWidth: 2)
+                        .background(Color.white)
                 }
             )
-        } else {
-            return AnyView(
-                Image(systemName: "photo") // Placeholder image
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .cornerRadius(12)
-            )
-        }
+            .onTapGesture {
+                selectedProduct = product
+                isShowingDescription = true
+            }
+            .alert(isPresented: $isShowingDescription) {
+                Alert(
+                    title: Text("Description"),
+                    message: Text(selectedProduct?.description ?? ""),
+                    dismissButton: .default(Text("close"))
+                )
+            }
     }
 }
-    
-//    func createDescriptionView(product: Product, isShowingDescription: Binding<Bool>) -> some View {
-//        return Text("Description")
-//            .font(.title3)
-//            .fontWeight(.bold)
-//            .foregroundColor(.blue)
-//            .padding(.vertical, 8)
-//            .padding(.horizontal, 12)
-//            .background(
-//                ZStack {
-//                    RoundedRectangle(cornerRadius: 8)
-//                        .stroke(Color.blue, lineWidth: 2)
-//                        .background(Color.white)
-//                }
-//            )
-//            .onTapGesture {
-//                isShowingDescription.wrappedValue = true
-//            }
-//            .alert(isPresented: Binding(
-//                get: { isShowingDescription.wrappedValue && selectedProduct?.id == product.id },
-//                set: { newValue in
-//                    isShowingDescription.wrappedValue = newValue
-//                }
-//            )) {
-//                Alert(
-//                    title: Text("תיאור"),
-//                    message: Text(product.description),
-//                    dismissButton: .default(Text("סגור")) {
-//                        isShowingDescription.wrappedValue = false
-//                    }
-//                )
-//            }
-//    }
-//}
-//
-//
-//
-//
 
 
 

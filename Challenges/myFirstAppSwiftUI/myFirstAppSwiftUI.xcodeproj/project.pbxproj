@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		011E5E672A54081900947AB0 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011E5E662A54081900947AB0 /* ProductViewModel.swift */; };
 		011E5E692A54135600947AB0 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011E5E682A54135600947AB0 /* ProductView.swift */; };
+		011E5E742A55616700947AB0 /* FevoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011E5E732A55616700947AB0 /* FevoriteView.swift */; };
+		011E5E762A55618100947AB0 /* FevoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011E5E752A55618100947AB0 /* FevoriteViewModel.swift */; };
 		01A7E9F12A4C60BA0023AB39 /* myFirstAppSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A7E9F02A4C60BA0023AB39 /* myFirstAppSwiftUIApp.swift */; };
 		01A7E9F32A4C60BA0023AB39 /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A7E9F22A4C60BA0023AB39 /* HomePageView.swift */; };
 		01A7E9F52A4C60BC0023AB39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01A7E9F42A4C60BC0023AB39 /* Assets.xcassets */; };
@@ -53,6 +55,8 @@
 /* Begin PBXFileReference section */
 		011E5E662A54081900947AB0 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		011E5E682A54135600947AB0 /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
+		011E5E732A55616700947AB0 /* FevoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FevoriteView.swift; sourceTree = "<group>"; };
+		011E5E752A55618100947AB0 /* FevoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FevoriteViewModel.swift; sourceTree = "<group>"; };
 		01A7E9ED2A4C60BA0023AB39 /* myFirstAppSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myFirstAppSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01A7E9F02A4C60BA0023AB39 /* myFirstAppSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myFirstAppSwiftUIApp.swift; sourceTree = "<group>"; };
 		01A7E9F22A4C60BA0023AB39 /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
@@ -112,6 +116,15 @@
 				011E5E682A54135600947AB0 /* ProductView.swift */,
 			);
 			path = Product;
+			sourceTree = "<group>";
+		};
+		011E5E722A55612200947AB0 /* Fevorites */ = {
+			isa = PBXGroup;
+			children = (
+				011E5E732A55616700947AB0 /* FevoriteView.swift */,
+				011E5E752A55618100947AB0 /* FevoriteViewModel.swift */,
+			);
+			path = Fevorites;
 			sourceTree = "<group>";
 		};
 		01A7E9E42A4C60BA0023AB39 = {
@@ -180,6 +193,7 @@
 				01A7EA322A4DAEA60023AB39 /* Login */,
 				01A7EA352A5168B90023AB39 /* Categories */,
 				011E5E632A5407BC00947AB0 /* Product */,
+				011E5E722A55612200947AB0 /* Fevorites */,
 				01A7EA252A4C7BC00023AB39 /* UtilsScreen */,
 			);
 			path = Screens;
@@ -387,7 +401,9 @@
 				01A7EA342A51686A0023AB39 /* LoginViewModel.swift in Sources */,
 				011E5E672A54081900947AB0 /* ProductViewModel.swift in Sources */,
 				01A7EA2F2A4C82530023AB39 /* SingUpAPI.swift in Sources */,
+				011E5E762A55618100947AB0 /* FevoriteViewModel.swift in Sources */,
 				01A7EA412A51A0E00023AB39 /* ProductAPI.swift in Sources */,
+				011E5E742A55616700947AB0 /* FevoriteView.swift in Sources */,
 				01A7EA1E2A4C67D70023AB39 /* SingUpView.swift in Sources */,
 				01A7E9F32A4C60BA0023AB39 /* HomePageView.swift in Sources */,
 				01A7EA3D2A5191B90023AB39 /* Login.swift in Sources */,

@@ -14,6 +14,6 @@ struct Product: Codable, Identifiable {
     let discountPercentage, rating: Double
     let stock: Int
     let brand, category: String
-    let thumbnail: String
+    let thumbnail: String?
     let images: [String]
 }
