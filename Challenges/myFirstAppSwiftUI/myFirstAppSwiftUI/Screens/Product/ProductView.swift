@@ -14,7 +14,6 @@ struct ProductView: View {
     @State var products: [Product] = []
     @State private var isShowingDescription = false
     @State private var selectedProduct: Product? = nil
-//    @State private var favorites: Set<Int> = []
     
     var body: some View {
         List(products, id: \.id) { product in
@@ -56,6 +55,7 @@ struct ProductView: View {
         }
         .navigationTitle(selectedCategory.capitalized)
     }
+    
     func createDescriptionView(for product: Product) -> some View {
         return Text("Description")
             .font(.title3)
@@ -83,41 +83,3 @@ struct ProductView: View {
             }
     }
 }
-
-
-
-
-
-
-
-
-//extension ProductView {
-//    private func createFavorite(for product: Product) -> some View {
-//        if favorites.contains(product.id) {
-//            favorites.remove(product.id)
-//            print(favorites)
-//        } else {
-//            favorites.insert(product.id)
-//            print(favorites)
-//        }
-//
-//        return Image(systemName: favorites.contains(product.id) ? "star.fill" : "star")
-//            .resizable()
-//            .aspectRatio(contentMode: .fit)
-//            .frame(width: 35, height: 35)
-//            .foregroundColor(.yellow)
-//
-//            .padding(.trailing, 3)
-//    }
-//}
-
-
-
-
-
-
-//struct ProductView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ProductView(productDetailsViewModel.products)
-//    }
-//}

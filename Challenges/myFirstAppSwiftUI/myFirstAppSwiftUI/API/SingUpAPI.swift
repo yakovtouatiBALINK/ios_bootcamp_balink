@@ -9,10 +9,10 @@ import Foundation
 
 struct UserAPI {
     static var shared = UserAPI()
-    private let urlregis = "https://balink.onlink.dev/users/register"
+    private let urlRegister = "https://balink.onlink.dev/users/register"
     
     func createUser(firstname: String, lastname: String, username: String, password: String) async throws -> Void {
-        guard let url = URL(string: urlregis) else {
+        guard let url = URL(string: urlRegister) else {
             throw APIError.invalidURL
         }
         
@@ -30,14 +30,10 @@ struct UserAPI {
         }
         
         if httpResponse.statusCode == 201{
-            
-            
-//            let user = try parseJSON(userData: data)
-//            DispatchQueue.main.async {
-//                ProductAPI.shared.token = user.token
-//                //UserDefaults.standard.set(token, forKey: "Token")
-//            }
-            
+            let user = try parseJSON(userData: data)
+            DispatchQueue.main.async {
+                ProductAPI.shared.token = user.token ?? ""
+            }
         } else {
             let errorResponse = try JSONDecoder().decode(ErrorResponse.self, from: data)
             throw APIError.registrationFailed(code: httpResponse.statusCode, message: errorResponse.message)

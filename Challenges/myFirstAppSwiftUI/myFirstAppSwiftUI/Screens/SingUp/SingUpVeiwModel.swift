@@ -13,10 +13,9 @@ class SingUp: ObservableObject {
     @Published var username: String = ""
     @Published var password: String = ""
     
-//    @Published var token: String = ""
     @Published var registrationStatus: String = ""
     
-    func registerUser() async throws {
+    func registerUser(completion: @escaping (Bool) -> Void) async throws {
         guard isInputValid(firstname: firstname, lastname: lastname, username: username, password: password) else {
             DispatchQueue.main.async {
                 self.registrationStatus = "Invalid input. Please check the form."
@@ -27,7 +26,7 @@ class SingUp: ObservableObject {
         do {
             try await UserAPI.shared.createUser(firstname: firstname, lastname: lastname, username: username, password: password)
             let token = UserDefaults.standard.string(forKey: "Token") ?? ""
-//            self.token = token
+            completion(true)
             DispatchQueue.main.async {
                 self.registrationStatus = "User registered successfully with token: \(token)"
                 print(self.registrationStatus)
@@ -55,6 +54,22 @@ class SingUp: ObservableObject {
             }
         }
     }
+    
+    func performRegistration(completion: @escaping (Bool) -> Void) {
+        Task {
+            do {
+                try await registerUser {
+                    succes in
+                    if succes {
+                        completion(true)
+                    }
+                }
+            } catch {
+                print("Registration error: \(error)")
+                completion(false)
+            }
+        }
+    }
 }
         
 func isInputValid(firstname: String, lastname: String, username: String, password: String) -> Bool {
@@ -75,9 +90,6 @@ extension String {
         return range(of: regex, options: .regularExpression) != nil
     }
 }
-
-
-
 
 
 

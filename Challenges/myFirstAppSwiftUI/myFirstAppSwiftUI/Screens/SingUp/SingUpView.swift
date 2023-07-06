@@ -13,7 +13,7 @@ struct SingUpView: View {
     
     var body: some View {
         VStack {
-            Text("Sing Up")
+            Text("Sign Up")
                 .font(.largeTitle)
                 .padding()
             
@@ -22,35 +22,25 @@ struct SingUpView: View {
             TextFieldView(title: "User Name", text: $signUp.username)
             TextFieldView(title: "Password", text: $signUp.password)
             
-            Button("Sign Up", action: action)
-                .font(.headline)
-                .padding()
-                .frame(width: 200, height: 50)
-                .foregroundColor(.white)
-                .background(Color.green)
-                .cornerRadius(10)
-            
+            SignUpButton()
             NavigationLink(destination: CategoriesListView(), isActive: $isRegistered) {
                 EmptyView()
             }
         }
         .padding()
     }
-    
-    func action() {
-        Task {
-            do {
-                try await signUp.registerUser()
-                isRegistered = true
-            } catch {
-                print("Registration error: \(error)")
+
+    func SignUpButton() -> some View {
+        Button("Sign Up") {
+            signUp.performRegistration { success in
+                isRegistered = success
             }
         }
-    }
-}
-
-struct SingUpViewView_Previews: PreviewProvider {
-    static var previews: some View {
-        SingUpView()
+        .font(.headline)
+        .padding()
+        .frame(width: 200, height: 50)
+        .foregroundColor(.white)
+        .background(Color.green)
+        .cornerRadius(10)
     }
 }

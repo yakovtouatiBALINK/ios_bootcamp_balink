@@ -13,11 +13,22 @@ struct CategoriesListView: View {
             } else if categoriesViewModel.products.isEmpty {
                 ProgressView()
             } else {
-                NavigationLink(destination: FevoriteView(categoriesViewModel: categoriesViewModel), label: {Image(systemName: "star.fill")
+                NavigationLink(destination: FevoriteView(categoriesViewModel: categoriesViewModel), label: {
+                    Image(systemName: "star.fill")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 25, height: 25)
-                    .foregroundColor(.yellow)})
+                        .foregroundColor(.yellow)})
+                
+                .padding()
+                
+                NavigationLink(destination: SearchView(categoriesViewModel: categoriesViewModel), label: {
+                    Image(systemName: "magnifyingglass")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 25, height: 25)
+                        .foregroundColor(.green)})
+                
                 .padding()
                 
                 NavigationLink(destination: ProductView(categoriesViewModel: categoriesViewModel, selectedCategory: $categorySelected ) ,isActive: $isActive) {}

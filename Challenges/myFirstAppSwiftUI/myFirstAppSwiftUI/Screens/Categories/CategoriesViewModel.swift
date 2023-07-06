@@ -13,6 +13,7 @@ class CategoriesViewModel: ObservableObject {
     @Published var categories: [String] = []
     @Published var error: Error?
     @Published private var favorites: Set<Int> = []
+    @Published var searchText: String = ""
     
     func fetchProducts() async {
         Task {
@@ -62,5 +63,14 @@ class CategoriesViewModel: ObservableObject {
     
     func getFavoriteProducts() -> [Product] {
         return products.filter { favorites.contains($0.id) }
+    }
+    
+    func searchTitle() -> [Product]{
+        if searchText.isEmpty {
+            return products
+        } else {
+            let searchLetters = searchText.lowercased()
+            return products.filter { $0.title.lowercased().contains(searchLetters) || $0.brand.lowercased().contains(searchLetters) }
+        }
     }
 }
