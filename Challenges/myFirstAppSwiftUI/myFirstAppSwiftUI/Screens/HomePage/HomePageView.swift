@@ -18,8 +18,8 @@ struct HomePageView: View {
                 NavigationLink(destination: SingUpView()) {
                     HomePageButton("Sign Up", color: .green.opacity(0.8))
                 }
-                NavigationLink(destination: CategoriesListView()) {
-//                NavigationLink(destination: LoginView()) {
+//                NavigationLink(destination: CategoriesListView()) {
+                NavigationLink(destination: LoginView()) {
                     HomePageButton("Login", color: .green.opacity(0.8))
                 }
                 .padding()

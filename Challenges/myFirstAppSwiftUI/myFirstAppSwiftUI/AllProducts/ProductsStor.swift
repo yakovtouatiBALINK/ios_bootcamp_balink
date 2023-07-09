@@ -7,7 +7,9 @@
 
 import Foundation
 
-class AllProducts {
+class ProductsStor {
+    static let sharedProducts = ProductsStor()
+    
     static var products: [Product] = []
     static var error: Error?
     
@@ -16,11 +18,11 @@ class AllProducts {
             do {
                 let fetchedProducts = try await ProductAPI.shared.getProduct()
                 DispatchQueue.main.async {
-                    AllProducts.products = fetchedProducts
+                    ProductsStor.products = fetchedProducts
                 }
             } catch {
                 DispatchQueue.main.async {
-                    AllProducts.error = error
+                    ProductsStor.error = error
                 }
             }
         }

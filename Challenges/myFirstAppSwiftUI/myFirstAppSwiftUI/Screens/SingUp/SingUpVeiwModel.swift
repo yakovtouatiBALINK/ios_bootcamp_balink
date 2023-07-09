@@ -25,13 +25,7 @@ class SingUp: ObservableObject {
         }
         do {
             try await UserAPI.shared.createUser(firstname: firstname, lastname: lastname, username: username, password: password)
-            let token = UserDefaults.standard.string(forKey: "Token") ?? ""
             completion(true)
-            DispatchQueue.main.async {
-                self.registrationStatus = "User registered successfully with token: \(token)"
-                print(self.registrationStatus)
-            }
-            print(self.registrationStatus)
         } catch {
             DispatchQueue.main.async {
                 self.registrationStatus = "Unknown error occurred"

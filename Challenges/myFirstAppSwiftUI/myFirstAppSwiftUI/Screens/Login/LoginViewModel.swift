@@ -23,13 +23,7 @@ class LoginViewModel: ObservableObject {
         }
         do {
             try await LoginApi.loginUserFromAPI(username: username, password: password)
-            let token = UserDefaults.standard.string(forKey: "Token") ?? ""
             completion(true)
-            print(token)
-            DispatchQueue.main.async {
-                self.registrationStatus = "User registered successfully with token: \(token)"
-            }
-            print(self.registrationStatus)
         } catch {
             DispatchQueue.main.async {
                 self.registrationStatus = "Unknown error occurred"
@@ -54,7 +48,7 @@ class LoginViewModel: ObservableObject {
     }
 }
         
-func isInputValid(username: String, password: String) -> Bool {
+private func isInputValid(username: String, password: String) -> Bool {
     let emailRegex = #"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"#
     let numberRegex = #"^[0-9]+$"#
     
@@ -69,10 +63,3 @@ extension String {
         return range(of: regex, options: .regularExpression) != nil
     }
 }
-
-
-
-
-
-
-

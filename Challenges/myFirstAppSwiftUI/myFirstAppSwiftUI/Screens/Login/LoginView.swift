@@ -29,7 +29,7 @@ struct LoginView: View {
     }
     
     func SignUpButton() -> some View {
-        Button("Sign Up") {
+        Button("Login") {
             loginViewModel.performRegistration { success in
                 isRegistered = success
             }

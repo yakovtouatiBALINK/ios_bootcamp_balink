@@ -57,7 +57,7 @@ struct SearchView: View {
         }
         .onAppear {
             Task {
-                await categoriesViewModel.fetchProducts()
+                await ProductsStor.sharedProducts.fetchProducts()
             }
         }
     }

@@ -11,7 +11,8 @@ struct ProductAPI {
     static var shared = ProductAPI()
     private let urlregis = "https://balink.onlink.dev/products"
     
-    var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IndlYWZnQGZmLmdoIiwicGFzc3dvcmQiOiJlcmQiLCJpYXQiOjE2ODc0MjQ0MTR9.UwfOEkXGAHHZY0VmwNiUXNIVJQmVsRWMcfxGNrOZLaw"
+    var token: String?
+//    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IndlYWZnQGZmLmdoIiwicGFzc3dvcmQiOiJlcmQiLCJpYXQiOjE2ODc0MjQ0MTR9.UwfOEkXGAHHZY0VmwNiUXNIVJQmVsRWMcfxGNrOZLaw"
     
     
     func getProduct() async throws -> [Product] {
@@ -23,10 +24,10 @@ struct ProductAPI {
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.addValue(token, forHTTPHeaderField: "Authorization")
-//        if let token = token {
-//            request.addValue(token, forHTTPHeaderField: "Authorization")
-//        }
+//        request.addValue(token, forHTTPHeaderField: "Authorization")
+        if let token = token {
+            request.addValue(token, forHTTPHeaderField: "Authorization")
+        }
         
         let (data, response) = try await URLSession.shared.data(for: request)
         if let res = response as? HTTPURLResponse,

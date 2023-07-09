@@ -9,7 +9,7 @@ import Foundation
 
 struct LoginApi {
     static func loginUserFromAPI(username: String, password: String) async throws -> Void {
-        guard let url = URL(string: "https://balink.onlink.dev/register") else {
+        guard let url = URL(string: "https://balink.onlink.dev/users/login") else {
             throw APIError.invalidURL
         }
         
@@ -26,7 +26,7 @@ struct LoginApi {
             throw APIError.invalidResponse
         }
         
-        if httpResponse.statusCode == 201 {
+        if httpResponse.statusCode == 200 {
             let jsonResponse = try JSONDecoder().decode(LoginResponse.self, from: data)
             let token = jsonResponse.token
             

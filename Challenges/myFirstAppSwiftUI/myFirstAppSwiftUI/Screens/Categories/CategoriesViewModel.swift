@@ -38,6 +38,7 @@ class CategoriesViewModel: ObservableObject {
                 uniqueCategories.append(product.category)
             }
         }
+        self.categories = uniqueCategories
         return uniqueCategories
     }
     
