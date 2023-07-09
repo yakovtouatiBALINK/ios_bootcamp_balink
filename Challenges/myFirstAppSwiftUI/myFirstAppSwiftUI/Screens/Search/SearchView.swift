@@ -9,7 +9,6 @@ import SwiftUI
 
 struct SearchView: View {
     @StateObject var categoriesViewModel: CategoriesViewModel
-//    @State private var searchText: String = ""
     
     var filteredProducts: [Product] {
             categoriesViewModel.searchTitle()
@@ -63,8 +62,3 @@ struct SearchView: View {
     }
 }
 
-//struct SearchView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SearchView()
-//    }
-//}

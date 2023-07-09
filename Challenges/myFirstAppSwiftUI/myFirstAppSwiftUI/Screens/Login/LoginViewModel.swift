@@ -10,9 +10,9 @@ import Foundation
 class LoginViewModel: ObservableObject {
     @Published var username: String = ""
     @Published var password: String = ""
-    
     @Published var registrationStatus: String = ""
     
+    // the func is same like signup
     func loginUser(completion: @escaping (Bool) -> Void) async throws {
         guard isInputValid(username: username, password: password) else {
             DispatchQueue.main.async {

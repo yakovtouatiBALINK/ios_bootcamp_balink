@@ -3,20 +3,19 @@
 //  myFirstAppSwiftUI
 //
 //  Created by yacov touati on 02/07/2023.
-//
+
 
 import Foundation
 
 struct ProductAPI {
     static var shared = ProductAPI()
-    private let urlregis = "https://balink.onlink.dev/products"
-    
+    //this token updated from the another api request
     var token: String?
-//    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IndlYWZnQGZmLmdoIiwicGFzc3dvcmQiOiJlcmQiLCJpYXQiOjE2ODc0MjQ0MTR9.UwfOEkXGAHHZY0VmwNiUXNIVJQmVsRWMcfxGNrOZLaw"
     
-    
+//     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IndlYWZnQGZmLmdoIiwicGFzc3dvcmQiOiJlcmQiLCJpYXQiOjE2ODc0MjQ0MTR9.UwfOEkXGAHHZY0VmwNiUXNIVJQmVsRWMcfxGNrOZLaw"
+// this func get the token and return akk products
     func getProduct() async throws -> [Product] {
-        guard let url = URL(string: urlregis) else {
+        guard let url = URL(string: "https://balink.onlink.dev/products") else {
             throw APIError.invalidURL
         }
         

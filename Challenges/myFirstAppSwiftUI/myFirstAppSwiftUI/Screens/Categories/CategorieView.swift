@@ -2,8 +2,8 @@
 import SwiftUI
 
 struct CategoriesListView: View {
-    @StateObject var categoriesViewModel = CategoriesViewModel()  //  istance of the VM that get the product
-    @State var categorySelected: String = ""                      // this var contain the category that selected
+    @StateObject var categoriesViewModel = CategoriesViewModel()
+    @State var categorySelected: String = ""
     @State var isActive: Bool = false
     
     var body: some View {
@@ -13,31 +13,13 @@ struct CategoriesListView: View {
             } else if categoriesViewModel.products.isEmpty {
                 ProgressView()
             } else {
-                //                favoriteButton()
-                //
-                //                searchButton()
-                
                 NavigationLink(destination: ProductView(categoriesViewModel: categoriesViewModel, selectedCategory: $categorySelected ) ,isActive: $isActive) {}
                 List(categoriesViewModel.categories, id: \.self) { category in
-                    Button(action: {
-                        categorySelected = category
-                        isActive = true
-                    }) {
-                        Text(category.capitalized)
-                            .font(.title2)
-                            .fontWeight(.bold)
-                            .foregroundColor(.white)
-                            .frame(maxWidth: .infinity)
-                            .padding()
-                            .background(
-                                RoundedRectangle(cornerRadius: 12)
-                                    .fill(Color.green.opacity(0.6))
-                            )
-                    }
-                    .buttonStyle(PlainButtonStyle())
+                    createCategoryButton(category: category)
                 }
                 .listStyle(PlainListStyle())
                 .padding()
+                
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         favoriteButton()
@@ -58,6 +40,7 @@ struct CategoriesListView: View {
         }
     }
     
+    // func that create favorite button
     func favoriteButton() -> some View {
         NavigationLink(destination: FevoriteView(categoriesViewModel: categoriesViewModel)) {
             Image(systemName: "star.fill")
@@ -69,6 +52,7 @@ struct CategoriesListView: View {
         .padding()
     }
     
+    // func that create search button
     func searchButton() -> some View {
         NavigationLink(destination: SearchView(categoriesViewModel: categoriesViewModel), label: {
             Image(systemName: "magnifyingglass")
@@ -79,10 +63,24 @@ struct CategoriesListView: View {
         
         .padding()
     }
+    
+    // func that create all category
+    func createCategoryButton(category: String) -> some View {
+        return Button(action: {
+            categorySelected = category
+            isActive = true
+        }) {
+            Text(category.capitalized)
+                .font(.title2)
+                .fontWeight(.bold)
+                .foregroundColor(.white)
+                .frame(maxWidth: .infinity)
+                .padding()
+                .background(
+                    RoundedRectangle(cornerRadius: 12)
+                        .fill(Color.green.opacity(0.6))
+                )
+        }
+        .buttonStyle(PlainButtonStyle())
+    }
 }
-
-//struct ProductListView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CategoriesListView(selectedCategory: "whgciw")
-//    }
-//}

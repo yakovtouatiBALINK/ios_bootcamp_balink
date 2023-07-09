@@ -27,6 +27,7 @@ struct HomePageView: View {
         }
     }
     
+    //func that create the button on the view
     func HomePageButton(_ title: String, color: Color) -> some View {
         Text(title)
             .font(.headline)
@@ -35,11 +36,5 @@ struct HomePageView: View {
             .foregroundColor(.white)
             .background(color)
             .cornerRadius(10)
-    }
-}
-
-struct WelcomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomePageView()
     }
 }

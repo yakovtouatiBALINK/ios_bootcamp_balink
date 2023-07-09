@@ -9,10 +9,10 @@ import Foundation
 
 struct UserAPI {
     static var shared = UserAPI()
-    private let urlRegister = "https://balink.onlink.dev/users/register"
     
+    //func that get the register info and update the token in the api request
     func createUser(firstname: String, lastname: String, username: String, password: String) async throws -> Void {
-        guard let url = URL(string: urlRegister) else {
+        guard let url = URL(string: "https://balink.onlink.dev/users/register") else {
             throw APIError.invalidURL
         }
         
@@ -40,6 +40,7 @@ struct UserAPI {
         }
     }
     
+    // func that responsible for parsing the JSON response data received from the server after registering a user
     func parseJSON(userData: Data) throws -> LoginResponse {
         let decoder = JSONDecoder()
         return try decoder.decode(LoginResponse.self, from: userData)

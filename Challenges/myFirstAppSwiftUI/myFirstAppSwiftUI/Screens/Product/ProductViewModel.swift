@@ -14,10 +14,12 @@ class ProductViewModel: ObservableObject {
     @Published var products: [Product] = []
     @Published var allProducts: [Product] = []
     
+    //func that get product by category
     func getProductByCategory(category: String, allProducts: [Product]) -> [Product] {
         return allProducts.filter { $0.category == category }
     }
     
+    // func that create product image
     func createProductImage(product: Product) -> some View {
         if let firstImageURL = product.thumbnail, let imageURL = URL(string: firstImageURL) {
             return AnyView(

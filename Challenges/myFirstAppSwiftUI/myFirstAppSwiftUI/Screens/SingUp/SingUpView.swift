@@ -29,7 +29,7 @@ struct SingUpView: View {
         }
         .padding()
     }
-
+// func that when the user press the button to register is check if the registration is correct is allow to navigte in the next page
     func SignUpButton() -> some View {
         Button("Sign Up") {
             signUp.performRegistration { success in

@@ -15,6 +15,7 @@ class SingUp: ObservableObject {
     
     @Published var registrationStatus: String = ""
     
+    // func that get the input from the user check if tthe input is valid and send the data tu the func that create a nwe user
     func registerUser(completion: @escaping (Bool) -> Void) async throws {
         guard isInputValid(firstname: firstname, lastname: lastname, username: username, password: password) else {
             DispatchQueue.main.async {
@@ -33,6 +34,7 @@ class SingUp: ObservableObject {
         }
     }
     
+    //func that check if the regstration sucsess
     func performRegistration(completion: @escaping (Bool) -> Void) {
         Task {
             do {
@@ -49,7 +51,8 @@ class SingUp: ObservableObject {
         }
     }
 }
-        
+
+// func that check if the input is valid
 func isInputValid(firstname: String, lastname: String, username: String, password: String) -> Bool {
     let nameRegex = #"^[a-zA-Z]+$"#
     let emailRegex = #"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"#

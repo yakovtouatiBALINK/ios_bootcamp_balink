@@ -8,6 +8,7 @@
 import Foundation
 
 struct LoginApi {
+    // func that take 2 parameter and update the api request with the token
     static func loginUserFromAPI(username: String, password: String) async throws -> Void {
         guard let url = URL(string: "https://balink.onlink.dev/users/login") else {
             throw APIError.invalidURL
