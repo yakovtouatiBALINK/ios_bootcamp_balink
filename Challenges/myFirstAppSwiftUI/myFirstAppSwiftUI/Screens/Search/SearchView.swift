@@ -24,7 +24,7 @@ struct SearchView: View {
             List(filteredProducts, id: \.id) { product in
                 HStack(spacing: 16) {
                     VStack(alignment: .leading, spacing: 8) {
-                    ProductViewModel.shared.createProductImage(product: product)
+                        ProductViewModel.shared.createProductImage(product: product)
                         
                         Text(product.title)
                             .font(.title)

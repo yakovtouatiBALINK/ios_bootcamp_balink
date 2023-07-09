@@ -13,23 +13,9 @@ struct CategoriesListView: View {
             } else if categoriesViewModel.products.isEmpty {
                 ProgressView()
             } else {
-                NavigationLink(destination: FevoriteView(categoriesViewModel: categoriesViewModel), label: {
-                    Image(systemName: "star.fill")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 25, height: 25)
-                        .foregroundColor(.yellow)})
-                
-                .padding()
-                
-                NavigationLink(destination: SearchView(categoriesViewModel: categoriesViewModel), label: {
-                    Image(systemName: "magnifyingglass")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 25, height: 25)
-                        .foregroundColor(.green)})
-                
-                .padding()
+                //                favoriteButton()
+                //
+                //                searchButton()
                 
                 NavigationLink(destination: ProductView(categoriesViewModel: categoriesViewModel, selectedCategory: $categorySelected ) ,isActive: $isActive) {}
                 List(categoriesViewModel.categories, id: \.self) { category in
@@ -52,6 +38,14 @@ struct CategoriesListView: View {
                 }
                 .listStyle(PlainListStyle())
                 .padding()
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        favoriteButton()
+                    }
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        searchButton()
+                    }
+                }
             }
         }
         .foregroundColor(.white)
@@ -59,9 +53,31 @@ struct CategoriesListView: View {
         .animation(.default)
         .onAppear {
             Task {
-                await categoriesViewModel.fetchProducts()  // func that get all products
+                await categoriesViewModel.fetchProducts()
             }
         }
+    }
+    
+    func favoriteButton() -> some View {
+        NavigationLink(destination: FevoriteView(categoriesViewModel: categoriesViewModel)) {
+            Image(systemName: "star.fill")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 25, height: 25)
+                .foregroundColor(.yellow)
+        }
+        .padding()
+    }
+    
+    func searchButton() -> some View {
+        NavigationLink(destination: SearchView(categoriesViewModel: categoriesViewModel), label: {
+            Image(systemName: "magnifyingglass")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 25, height: 25)
+                .foregroundColor(.green)})
+        
+        .padding()
     }
 }
 

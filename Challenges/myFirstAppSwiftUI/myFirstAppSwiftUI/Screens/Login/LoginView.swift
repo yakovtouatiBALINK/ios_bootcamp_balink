@@ -12,42 +12,34 @@ struct LoginView: View {
     @State private var isRegistered = false
     
     var body: some View {
-            VStack {
-                Text("Login")
-                    .font(.largeTitle)
-                    .padding()
-                
-                TextFieldView(title: "User Name", text: $loginViewModel.username)
-                TextFieldView(title: "Password", text: $loginViewModel.password)
-                
-                Button("Sign Up", action: action)
-                    .font(.headline)
-                    .padding()
-                    .frame(width: 200, height: 50)
-                    .foregroundColor(.white)
-                    .background(Color.green)
-                    .cornerRadius(10)
-                NavigationLink(destination: CategoriesListView(), isActive: $isRegistered) {
-                    EmptyView()
-                }
-            }
-            .padding()
-    }
-    func action() {
-        Task {
-            do {
-                try await loginViewModel.loginUser()
-                isRegistered = true
-            } catch {
-                print("Registration error: \(error)")
+        VStack {
+            Text("Login")
+                .font(.largeTitle)
+                .padding()
+            
+            TextFieldView(title: "User Name", text: $loginViewModel.username)
+            TextFieldView(title: "Password", text: $loginViewModel.password)
+            
+            SignUpButton()
+            NavigationLink(destination: CategoriesListView(), isActive: $isRegistered) {
+                EmptyView()
             }
         }
+        .padding()
+    }
+    
+    func SignUpButton() -> some View {
+        Button("Sign Up") {
+            loginViewModel.performRegistration { success in
+                isRegistered = success
+            }
+        }
+        .font(.headline)
+        .padding()
+        .frame(width: 200, height: 50)
+        .foregroundColor(.white)
+        .background(Color.green)
+        .cornerRadius(10)
     }
 }
 
-
-struct LoginView_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginView()
-    }
-}

@@ -18,10 +18,10 @@ class CategoriesViewModel: ObservableObject {
     func fetchProducts() async {
         Task {
             do {
-                let fetchedProducts = try await ProductAPI.shared.getProduct()   // the singel api request
+                let fetchedProducts = try await ProductAPI.shared.getProduct()
                 DispatchQueue.main.async {
-                    self.products = fetchedProducts          // update the array with all products that come from the api
-                    self.categories = self.getCategories()   // update the array with all categories
+                    self.products = fetchedProducts
+                    self.categories = self.getCategories()   
                 }
             } catch {
                 DispatchQueue.main.async {
@@ -42,27 +42,27 @@ class CategoriesViewModel: ObservableObject {
     }
     
     func toggleFavorite(for product: Product) {
-        if favorites.contains(product.id) {
-            favorites.remove(product.id)
-            print(favorites)
+        var fevoritesFromUD: [Int] = UserDefaults.standard.array(forKey: "FavoriteProductIDs") as? [Int] ?? []
+        if fevoritesFromUD.contains(product.id) {
+            fevoritesFromUD.removeAll(where:{ $0 == product.id })
+            print(fevoritesFromUD)
         } else {
-            favorites.insert(product.id)
-            print(favorites)
+            fevoritesFromUD.append(product.id)
+            print(fevoritesFromUD)
         }
-        
-        saveFavoritesToUserDefaults()
+        self.categories = self.getCategories()
+        UserDefaults.standard.setValue(Array(fevoritesFromUD), forKey: "FavoriteProductIDs")
     }
     
     func isFavorite(_ product: Product) -> Bool {
-        return favorites.contains(product.id)
-    }
-    
-    private func saveFavoritesToUserDefaults() {
-        UserDefaults.standard.setValue(Array(favorites), forKey: "FavoriteProductIDs")
+        let arr: [Int] = UserDefaults.standard.array(forKey: "FavoriteProductIDs") as? [Int] ?? []
+        return arr.contains(product.id)
     }
     
     func getFavoriteProducts() -> [Product] {
-        return products.filter { favorites.contains($0.id) }
+        let arr: [Int] = UserDefaults.standard.array(forKey: "FavoriteProductIDs") as? [Int] ?? []
+        print(arr)
+        return products.filter { arr.contains($0.id) }
     }
     
     func searchTitle() -> [Product]{

@@ -13,7 +13,7 @@ class LoginViewModel: ObservableObject {
     
     @Published var registrationStatus: String = ""
     
-    func loginUser() async throws {
+    func loginUser(completion: @escaping (Bool) -> Void) async throws {
         guard isInputValid(username: username, password: password) else {
             DispatchQueue.main.async {
                 self.registrationStatus = "Invalid input. Please check the form."
@@ -24,30 +24,31 @@ class LoginViewModel: ObservableObject {
         do {
             try await LoginApi.loginUserFromAPI(username: username, password: password)
             let token = UserDefaults.standard.string(forKey: "Token") ?? ""
+            completion(true)
             print(token)
             DispatchQueue.main.async {
                 self.registrationStatus = "User registered successfully with token: \(token)"
             }
             print(self.registrationStatus)
-        } catch APIError.invalidURL {
-            DispatchQueue.main.async {
-                self.registrationStatus = "Invalid API URL"
-            }
-        } catch APIError.invalidResponse {
-            DispatchQueue.main.async {
-                self.registrationStatus = "Invalid server response"
-            }
-        } catch APIError.tokenNotFound {
-            DispatchQueue.main.async {
-                self.registrationStatus = "Token not found in response"
-            }
-        } catch let APIError.registrationFailed(code, message) {
-            DispatchQueue.main.async {
-                self.registrationStatus = "Registration failed with status code \(code): \(message)"
-            }
         } catch {
             DispatchQueue.main.async {
                 self.registrationStatus = "Unknown error occurred"
+            }
+        }
+    }
+    
+    func performRegistration(completion: @escaping (Bool) -> Void) {
+        Task {
+            do {
+                try await loginUser {
+                    succes in
+                    if succes {
+                        completion(true)
+                    }
+                }
+            } catch {
+                print("Registration error: \(error)")
+                completion(false)
             }
         }
     }

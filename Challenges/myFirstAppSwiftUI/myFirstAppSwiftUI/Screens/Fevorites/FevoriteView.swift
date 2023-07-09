@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct FevoriteView: View {
+    
     @StateObject var categoriesViewModel: CategoriesViewModel
+//    @EnvironmentObject var productVM: AllProducts
     
     var body: some View {
         List(categoriesViewModel.getFavoriteProducts(), id: \.id) { product in

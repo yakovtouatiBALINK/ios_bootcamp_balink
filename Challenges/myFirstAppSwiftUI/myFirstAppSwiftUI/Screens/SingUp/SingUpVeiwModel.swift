@@ -32,22 +32,6 @@ class SingUp: ObservableObject {
                 print(self.registrationStatus)
             }
             print(self.registrationStatus)
-        } catch APIError.invalidURL {
-            DispatchQueue.main.async {
-                self.registrationStatus = "Invalid API URL"
-            }
-        } catch APIError.invalidResponse {
-            DispatchQueue.main.async {
-                self.registrationStatus = "Invalid server response"
-            }
-        } catch APIError.tokenNotFound {
-            DispatchQueue.main.async {
-                self.registrationStatus = "Token not found in response"
-            }
-        } catch let APIError.registrationFailed(code, message) {
-            DispatchQueue.main.async {
-                self.registrationStatus = "Registration failed with status code \(code): \(message)"
-            }
         } catch {
             DispatchQueue.main.async {
                 self.registrationStatus = "Unknown error occurred"

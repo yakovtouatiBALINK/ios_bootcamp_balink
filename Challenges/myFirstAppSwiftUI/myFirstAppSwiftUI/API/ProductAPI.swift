@@ -13,14 +13,8 @@ struct ProductAPI {
     
     var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IndlYWZnQGZmLmdoIiwicGFzc3dvcmQiOiJlcmQiLCJpYXQiOjE2ODc0MjQ0MTR9.UwfOEkXGAHHZY0VmwNiUXNIVJQmVsRWMcfxGNrOZLaw"
     
+    
     func getProduct() async throws -> [Product] {
-        //        guard let tokenData = UserDefaults.standard.data(forKey: "Token"),
-        //              let tokenString = String(data: tokenData, encoding: .utf8) else {
-        //            throw APIError.tokenNotFound
-        //        }
-        
-        //let token = tokenString.replacingOccurrences(of: #"\"#, with: "")
-        
         guard let url = URL(string: urlregis) else {
             throw APIError.invalidURL
         }

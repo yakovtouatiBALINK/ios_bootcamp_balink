@@ -30,9 +30,9 @@ struct UserAPI {
         }
         
         if httpResponse.statusCode == 201{
-            let user = try parseJSON(userData: data)
+            let userInfo = try parseJSON(userData: data)
             DispatchQueue.main.async {
-                ProductAPI.shared.token = user.token ?? ""
+                ProductAPI.shared.token = userInfo.token ?? ""
             }
         } else {
             let errorResponse = try JSONDecoder().decode(ErrorResponse.self, from: data)
@@ -54,7 +54,7 @@ enum APIError: Error {
     case registrationFailed(code: Int, message: String)
     case requestFailed(code: Int, message: String)
 }
-    
+
 struct ErrorResponse: Codable {
     let message: String
 }
